@@ -4,3 +4,9 @@
 *.swp
 *.bak
 *Poul*
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.backup

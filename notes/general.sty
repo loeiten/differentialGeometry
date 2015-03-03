@@ -1,0 +1,505 @@
+% Additional packages
+%===============================================================================
+%Character set
+\usepackage[latin1]{inputenc}
+%Font coding
+\usepackage[T1]{fontenc}        
+%Can easily write URLs with \url{}
+\usepackage[T1]{url}            
+%Expanded number of symbols
+\usepackage{textcomp}      
+%Enumeration
+%------------------------------------------
+% Gives [noitemsep,nolistsep] option for item
+\usepackage{enumitem}
+%Gives dashes instead of bullets in itemize
+\def\labelitemi{--}   
+%Removes indation level
+%\setlist[itemize]{leftmargin=*} 
+%http://tex.stackexchange.com/questions/54055/
+%using-lower-case-roman-numerals-in-enumerate-lists
+%------------------------------------------
+%Cross-references with \vref{}
+\usepackage{varioref}           
+%Post Script - illustrations with 
+%\includegrapsics{} h=here t=top b=bottom p=own page !=override latex
+\usepackage{graphicx}           
+%Allows eps files
+%If using pdflatex, remember to allow shell escape
+%http://tex.stackexchange.com/questions/139011/
+%using-kile-and-pdflatex-with-eps-files
+\usepackage{epstopdf}           
+%Gives the possibility to have text close to the picture: 
+%\begin{wrapfigure}[lineheight] {alignment}{width}
+\usepackage{wrapfig}            
+%Several plots in one command 
+%http://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions)
+\usepackage{subcaption}
+%Caption option
+\usepackage[font={small, it}]{caption}
+%Top og bottomtext
+\usepackage{fancyhdr}           
+%For coloring text
+\usepackage[usenames,dvipsnames,svgnames,hyperref]{xcolor}
+%Used when inserting a program code (ex. matlab, Fortran etc.)
+\usepackage{listings}           
+%American Math Society additional packages
+%------------------------------------------
+\usepackage{amsmath}           
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%------------------------------------------
+%Gives the diameter symbol
+% use \varnothing intstead
+% \usepackage{wasysym} 
+%Can have ``cancel-line'' over terms
+\usepackage{cancel}
+%Provides oiint
+\usepackage{esint}
+
+\setlength{\headheight}{14.5pt}
+\usepackage[top=2.75cm, bottom=2.5cm, outer=3cm, inner=2cm, heightrounded, 
+marginparwidth=2cm, marginparsep=0.5cm]{geometry}
+
+
+%Makes text widen until the end of the margins
+%\usepackage{a4wide}         
+%Adjustments of the distance between lines
+%\usepackage{setspace}           
+%Makes endnotes
+\usepackage{endnotes}
+%Symbols (used in doi reference) [misc] for PaperPortrait 
+\usepackage[misc]{ifsym}        
+\usepackage[pdffitwindow=false,%
+            pdfstartview={FitH},%
+            %Can set windows and colors on or off (hide links)
+            colorlinks=false,%hidelinks,
+            %Bookmarks open in hte menu
+            bookmarksopen=false,%
+            %Hyperref gives clickable links 
+            %in the document
+            bookmarksnumbered=true]{hyperref}   
+            
+%Make landscape pages
+\usepackage{pdflscape}          
+%Wrap \afterpage{} around the landscape in order to have wrapped text around it
+\usepackage{afterpage}
+%Margin notes
+\usepackage{marginnote}
+%Spacing of the bib
+\usepackage{setspace}
+%Inserting pdf files
+\usepackage{pdfpages}
+%Boxes
+%----------------------------
+\usepackage{empheq}
+\usepackage[many,breakable]{tcolorbox}
+\usepackage{varwidth}
+%----------------------------
+% Gives "cancel" over symbols
+\usepackage{centernot}
+% Multiple columns in enumerate
+\usepackage{multicol}
+%To get Embellished fonts \mathsrc
+\usepackage{mathrsfs}
+% Adding tags in align*
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+%Tables to span over pages
+\usepackage{longtable}
+%===============================================================================
+
+
+%Color definitions
+%===============================================================================
+\definecolor{commentgreen}{rgb}{0.129,0.71,0.6}
+\definecolor{listinggray}{gray}{0.95}
+\definecolor{shadow}{cmyk}{0.1,0.1,0.1,0.2}
+\definecolor{orange}{rgb}{1,0.5,0}
+\definecolor{pink}{cmyk}{0.0,0.9,0.0,0.0}
+\definecolor{boxcyan}{rgb}{0.90,0.99,0.95}
+\definecolor{boxblue}{rgb}{0.8,0.8,1.00}
+%===============================================================================
+
+
+%Box definitions
+%===============================================================================
+% !Needs a 2013 distro of TexLive (see above for installations)
+\tcbset{highlight math style={enhanced,
+  colframe=black,colback=boxcyan,arc=4pt,boxrule=0.5pt,
+  drop fuzzy shadow}}
+%http://tex.stackexchange.com/questions/134984/putting-frame-only-around-equatio
+%n-using-mdframed-package
+
+\newcounter{exa}
+\tcbset{
+myexample/.style={
+  enhanced,
+  colback=yellow!10!white,
+  colframe=red!50!black,
+  fonttitle=\scshape,
+  titlerule=0pt,
+  title={\refstepcounter{exa}example~\theexa.},
+  title style={fill=yellow!10!white},
+  coltitle=red!50!black,
+  drop shadow,
+  highlight math style={reset,colback=LightBlue!50!white,colframe=Navy}
+  }
+}
+\newtcolorbox{example}[2][]{myexample,
+breakable,
+title={\refstepcounter{exa}example~\theexa: {#2}},#1}
+%http://tex.stackexchange.com/questions/123338/sample-example-of-box-in-latex
+
+
+% Define a greenbox
+\newtcolorbox{greenbox}[2][]{enhanced, attach boxed title to top 
+left={xshift=1cm,yshift=-2mm}, fonttitle= \bfseries, varwidth boxed 
+title=0.7 
+\linewidth,colbacktitle=green!45!white,coltitle=green!10!black,
+colframe=green!50!black,
+interior style={top color=yellow!10!white,bottom color=green!10!white},
+boxed title style={enhanced,boxrule=0.75mm,colframe=white,
+borderline={0.1mm}{0mm}{green!50!black},
+borderline={0.1mm}{0.75mm}{green!50!black},
+interior style={top color=green!10!white,bottom color=green!10!white,
+middle color=green!50!white},
+drop fuzzy shadow},
+title={#2},#1}
+%===============================================================================
+
+%List definition
+%===============================================================================
+\lstset{
+%The program language
+language=matlab,                                        
+%Fontsize for the code
+basicstyle=\ttfamily\scriptsize,                      
+%Additional codewords
+otherkeywords=                                          
+   {-, =, +, /, ', <, >, ;, \{, \}, :, *, !, ~,
+   if, in, for, while, if, is, elif, else, not,
+   def, print, exec, break, continue, return, ones},
+%Defines the style for ``keyword''
+keywordstyle=\color{pink},                  
+%Defines the style for strings
+stringstyle=\color{orange},                 
+%Defines the style for emph
+emphstyle=\color{pink}\bfseries,      
+%Defines the style for objects in emph[2]
+emphstyle=[2]\color{Magenta},         
+%Defines the style for objects in emph[3]
+emphstyle=[3]\color{blue},            
+%Defines the style for comments
+commentstyle=\color{commentgreen}\slshape,      
+%Special words with a special style
+emph={class, pass},                   
+%Special words with a special style, which is deifferent from the first
+emph={[2]True, False, None, self},    
+%Special words with a special style, which is deifferent from the second
+emph={[3]from, import, as},
+%Defines what should also be considerd as comments
+morecomment=[s]{"""}{"""},            
+upquote=true,
+%Defines the frame
+framexleftmargin=5mm, framextopmargin=1mm, frame=shadowbox,   
+rulesepcolor=\color{shadow},              
+%Defines the background in the frame
+backgroundcolor=\color{listinggray},      
+%Display of line number in the code
+numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=2pt,   
+%Underline in spaces
+showspaces=false,                                  
+%Shows tabulator
+showtabs=false, tabsize=4,                         
+%Underlinespace on strings
+showstringspaces=false,    
+%Allow Latex to break lines when there is a pagebreak
+breaklines=false            
+}
+%===============================================================================
+
+
+%Gives boxed equations in align enviroment 
+%===============================================================================
+% http://tex.stackexchange.com/questions/72692/highlight-an-equation-within-an 
+% -align-environment-with-color-option/
+% \usepackage{calc}
+% \newlength\dlf
+% \newcommand\hlbox[3][boxcyan]{
+%   % #1 = color (optional, defaults to yellow)
+%   % #2 = before alignment
+%   % #3 = after alignment
+%   &
+%   \begingroup
+%   \settowidth\dlf{$\displaystyle #2$}
+%   \addtolength\dlf{\fboxsep+\fboxrule}
+%   \hspace{-\dlf}
+%   \fcolorbox{black}{#1}{$\displaystyle #2 #3$}
+%   \endgroup
+% }
+%===============================================================================
+
+
+%Tabulatur settings
+%===============================================================================
+% \renewcommand\arraystretch{2.5}
+%===============================================================================
+
+
+%Word division
+%===============================================================================
+\pretolerance=2000
+\tolerance=6000
+\hbadness=\tolerance
+%===============================================================================
+
+%Shortcuts
+%===============================================================================
+%\newcommand{name}[number of arguments]{definition}
+
+%Miscellaneous
+%***********************************
+%Gives thight itemlists
+\newcommand{\ti}[1]{\begin{itemize}\setlength{\itemsep}{0cm}\setlength{\parskip}
+{0cm}{#1}\end{itemize}}
+%Underline
+\newcommand{\uuline}[1]{\underline{\underline{#1}}}
+%Overline
+\newcommand{\ol}[1]{\overline{#1}}
+%Horizontal rule
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+%Differs the different dB scales                                         
+\newcommand{\dB}[1]{\, \text{dB}(\text{{#1}})}
+%iota bar
+\newcommand{\iotabar}[0]{\mbox{\raisebox{0.35ex}{-}$\mkern-6.55mu\iota$}}
+% Margin notes
+\newcommand{\note}[1]{\marginnote{\scriptsize #1}}
+% Tilde
+\newcommand{\wt}[1]{\widetilde{ #1}}
+%***********************************
+
+%Vector
+%***********************************
+%Vector
+\newcommand{\ve}[1]{\boldsymbol{#1}}
+%Unit vector
+\newcommand{\hv}[1]{\hat{\ve{#1}}}
+%Tensor
+\newcommand{\te}[1]{\boldsymbol{\overline{\overline{#1}}}}
+%Norm
+\newcommand{\norm}[1]{\left\|\mathbf{#1}\right\|}
+%Provides the "approximately propotional to"
+\newcommand{\appropto}{\mathrel{\vcenter{
+  \offinterlineskip\halign{\hfil$##$\cr
+    \propto\cr\noalign{\kern2pt}\sim\cr\noalign{\kern-2pt}}}}}                   
+%Tables inside table to be able to have breaklines and centering 
+%\\[-0.2cm] gives good spacing               
+\newcommand{\bigcell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+%***********************************
+
+%Quantum Mechanics and probabilities
+%***********************************
+\newcommand{\op}[1]{{\widehat{#1}}}
+%Operator with dagger
+\newcommand{\opd}[1]{{\op{#1}^{\dagger}}}                                       
+\newcommand{\ket}[1]{\L|{#1}\R\rangle}
+\newcommand{\bra}[1]{\L\langle{#1}\R|}
+\newcommand{\expt}[1]{\langle{#1}\rangle}
+\newcommand{\innp}[2]{\langle{#1}|{#2}\rangle}
+\newcommand{\prob}[2]{\L|\L\langle{#1}|{#2}\R\rangle\R|^2}
+%Commutator
+\newcommand{\comm}[2]{\L[{#1},{#2}\R]}                                           
+%Spin down
+\def\da{\downarrow}                                                              
+%Spin up
+\def\ua{\uparrow}                                                               
+\def\dag{\dagger}
+%Tensor product
+\def\TP{\otimes}                                                                 
+%***********************************
+
+%Analysis
+%***********************************
+%Definite integral
+\newcommand{\defi}[4]{\int_{#1}^{#2} {#3} \; \text{d} {#4}}                      
+%Indefinite integral
+\newcommand{\inde}[2]{\int {#1} \; \text{d} {#2}}                                
+%Definite vector integral
+\newcommand{\defiv}[3]{\int_{\mathcal{#1}} \ve{{#2}} \cdot \text{d} \ve{{#3}}}   
+%Definite integration over closed loop
+\newcommand{\odef}[3]{\oint_{\mathcal{#1}} \ve{{#2}} \cdot \text{d} \ve{{#3}}}   
+%Indefinite integration over closed loop
+\newcommand{\oinde}[2]{\oint \ve{{#1}} \cdot \text{d} \ve{{#2}}}                
+%Derivation operator
+%-------------------
+%\newcommand{\deri}[2]{\displaystyle \frac{\text{d}{#1}}{\text{d}{#2}}}          
+               %Derivation operator big
+\newcommand{\deri}[2]{\frac{\text{d}{#1}}{\text{d}{#2}}}                         
+%-------------------
+%Partial derivation operator
+%-------------------
+%\newcommand{\parti}[2]{\displaystyle \frac{\partial {#1}}{\partial{#2}}}       
+\newcommand{\parti}[2]{\frac{\partial {#1}}{\partial{#2}}}                     
+%-------------------
+%Derivation operator (for small inline pages)
+\newcommand{\derismall}[2]{\frac{\text{d}{#1}}{\text{d}{#2}}}                   
+%Partial derivation when varible is held constant
+\newcommand{\consp}[3]{\L(\displaystyle \frac{\partial 
+{#1}}{\partial{#2}}\R)_{#3}}             
+
+               
+%Analytical mechanics
+%***********************************
+%Poisson brackets: Dep variables, indep variables
+\newcommand{\poisson}[4]{\parti{#1}{#3}\parti{#2}{#4}-\parti{#1}{#4}\parti{#2}{
+#3}}             
+%Short form of Possion brackets
+\newcommand{\poi}[4]{\L[{#1},{#2}\R]_{({#3},{#4})}}                             
+%***********************************
+
+%Fluid mechanics
+%***********************************
+%Material derivative
+\newcommand{\matd}[1]{\frac{\text{D}{#1}}{\text{D}t}}                            
+%Explicit material derivate
+\newcommand{\matde}[2]{\parti{}{t}{#1}+\ve{#2}\cdot\nabla{#1}}                   
+%One dimensional material derivate
+\newcommand{\matdeo}[2]{\parti{}{t}{#1}+{#2}\parti{{#1}}{s}}                     
+%***********************************
+
+
+%Greek letters
+%*************
+\def\a{\alpha}
+\def\b{\beta}
+\def\D{\Delta}
+\def\g{\gamma}
+\def\e{\varepsilon}
+\def\om{\omega}
+\def\Om{\Omega}
+\def\p{\psi}
+\def\P{\Psi}
+\def\t{\theta}
+\def\ph{\phi}
+\def\vph{\varphi}
+%*************
+
+%Mathematics
+%*************
+\def\defined{\overset{\text{def}}{=}}
+\def\inf{\infty}
+\def\d{\text{d}}
+\def\grad{\nabla}
+\def\curl{\nabla\times}
+\def\div{\nabla\cdot}
+\def\pa{\partial}
+\def\max{\text{max}}
+\def\min{\text{min}}
+\def\<{\langle}
+\def\>{\rangle}
+\def\L{\left}
+\def\R{\right}
+\def\RA{\; \Rightarrow \;}
+\def\RL{\; \Leftrightarrow \;}
+\def\lra{\; \longrigtharrow \;}
+\def\at{\text{arc}\hspace{-2pt}\tanh}
+\def\sech{\text{sech}}
+\def\atan{\text{atan}}
+\def\ix{\hat{i}}
+\def\jy{\hat{j}}
+\def\kz{\hat{k}}
+\def\WT{\widetilde}
+\def\DA{\Downarrow}
+%*************
+
+%Units
+%*************
+\def\nm{\, \text{nm}}
+\def\mum{\, \mu\text{m}}
+\def\mm{\, \text{mm}}
+\def\cm{\, \text{cm}}
+\def\m{\, \text{m}}
+\def\km{\, \text{km}}
+\def\ms{\, \text{ms}}
+\def\mus{\, \mu\text{s}}
+\def\ns{\, \text{ns}}
+\def\deg{^{\circ}}
+\def\rad{\,\text{rad}}
+\def\sr{\,\text{sr}}
+\def\dioptre{\, \text{dioptre}}
+\def\N{\, \text{N}}
+\def\Npm{\, \text{N}/\text{m}}
+\def\kgmps{\, \text{kgm}/\text{s}}
+\def\kgps{\, \text{kg}/\text{s}}
+\def\kgpm{\, \text{kg}/\text{m}}
+\def\kgpms{\, \text{kg}/\text{ms}}
+\def\kg{\, \text{kg}}
+\def\kmps{\, \text{km}/\text{s}}
+\def\mps{\, \text{m}/\text{s}}
+\def\kmpt{\, \text{km}/\text{t}}
+\def\s{\, \text{s}}
+\def\gr{\, \text{g}}
+\def\bar{\, \text{bar}}
+\def\Pa{\, \text{Pa}}
+\def\mPa{\, \text{mPa}}
+\def\micPa{\, \mu\text{Pa}}
+\def\atm{\, \text{atm}}
+\def\Fpm{\, \text{F}/\text{m}}
+\def\Hpm{\, \text{H}/\text{m}}
+\def\mT{\, \text{mT}}
+\def\T{\, \text{T}}
+\def\kohm{\, \text{k}\Omega}
+\def\Mohm{\, \text{M}\Omega}
+\def\Hz{\, \text{Hz}}
+\def\kHz{\, \text{kHz}}
+\def\MHz{\, \text{MHz}}
+\def\GHz{\, \text{GHz}}
+\def\V{\, \text{V}}
+\def\pF{\, \text{pF}}
+\def\C{^{\circ}\text{C}}
+\def\K{\, \text{K}}
+\def\mol{\, \text{mol}}
+%Molar energy
+\def\Jpm{\, \text{J}/\text{mol}}             
+%Molar energy
+\def\kJpm{\, \text{kJ}/\text{mol}}           
+%Molar entropy, molar heat capacity
+\def\kJpKm{\, \text{kJ}/\text{K}\text{mol}}  
+%Thermic conductivity
+\def\WpmK{\, \text{W}/\text{mK}}             
+%Heat capacity, entropy
+\def\JpK {\, \text{J/K}}                     
+%Heat capacity, entropy
+\def\eVpK{\, \text{eV/K}}                    
+%Heat flux denisty, irrradiance [METER HAS TO BE SQUARED]
+\def\Wpm{\, \text{W}/\text{m}}               
+%Heat flux denisty, irrradiance [METER HAS TO BE SQUARED]
+\def\kWpm{\, \text{kW}/\text{m}}            
+%Radiance  %[METER HAS TO BE SQUARED]
+\def\Wpsrm{\, \text{W}/\text{sr m}}
+\def\A{\, \text{A}}
+\def\kA{\, \text{kA}}  
+\def\MA{\, \text{MA}}
+\def\eV{\, \text{eV}}
+\def\keV{\, \text{keV}}
+\def\J{\, \text{J}}
+\def\kJ{\, \text{kJ}}
+\def\Js {\, \text{Js}}
+\def\W{\, \text{W}}
+\def\muW{\, \mu\text{W}}
+\def\mW{\, \text{mW}}
+\def\kW{\, \text{kW}}
+\def\kWe{\, \text{kW}_{\text{e}}}
+\def\kWt{\, \text{kW}_{\text{t}}}
+\def\Wh{\, \text{Wh}}
+\def\TWh{\, \text{TWh}}
+\def\PWh{\, \text{PWh}}
+\def\kWeh{\, \text{kW}_{\text{e}}\text{h}}
+\def\kWth{\, \text{kW}_{\text{t}}\text{h}}
+\def\MWth{\, \text{MW}_{\text{t}}\text{h}}
+\def\TWth{\, \text{TW}_{\text{t}}\text{h}}
+\def\TWhy{\, \text{TWh}/\text{år}}
+\def\db{\, \text{dB}}
+%*************
+\allowdisplaybreaks
+%===============================================================================

@@ -1,5 +1,5 @@
 \documentclass[a4paper, 12pt]{article}
-\usepackage{../../../LaTeX/general}
+\usepackage{general}
 \title{\vspace{-8ex}A short note about differential geometry\vspace{-1ex}}
 \author{Michael L{\o}iten}
 \date{\vspace{-2ex}\today}
@@ -28,31 +28,67 @@
 \def\divurl{http://physicspages.com/index-physics-relativity/dinverno-introducing-einsteins-relativity-problems/}
 \def\cotan{https://www.physicsforums.com/threads/basis-for-tangent-space-and-cotangent-space.283108/}
 
-
 \begin{document}
 \maketitle
 
 \section{Manifold}
-A \emph{manifold} is a geometric object that consist of a collection of points 
-(that is a locus of points), each point satisfying the condition that the area 
-of the manifold near that point resembles Euclidean (flat space). The number $n$ 
-of dimensions needed to define a manifold is the number of parameters needed to 
-locate all the points on it.\\
+A \emph{manifold} is a topological space%
+\footnote{A topological space may be defined as a set of points, along with a 
+          set of neighborhoods for each point, that satisfy a set of axioms 
+          relating points and neighborhoods.}%
+, where each point satisfying the condition that the space of the manifold near 
+that point resembles Euclidean (flat space). The number $n$ of dimensions needed 
+to define a manifold is the number of parameters needed to locate all the points 
+on it.\\
 \\
 Example:\\
-A sphere in $\mathbb{R}^3$ is a 2D manifold. It needs two parameters to 
-trace out the surface (all the points of the manifold). We can write the circle 
-as
-%
-\begin{align}
+A geometric object such as a sphere in $\mathbb{R}^3$ is a 2D manifold. The 
+geometric object is nothing but a collection of points. The sphere is thus the 
+locus of points with equal distance to the center. This sphere is a 2D 
+manifold, as it needs two parameters to trace out the surface (all the points of 
+the manifold). We can describe a sphere by using the spherical 
+\emph{coordinates} (see section \ref{sec:coord}) $r$, $\theta$ and $\phi$. These 
+coordinates can be written in terms of the Cartesian coordinates $x$, $y$ and 
+$z$ as described by equation (\ref{eq:r} - \ref{eq:phi})
+
+\begin{minipage}{0.49\textwidth}
+ \begin{align}
+ &r = \sqrt{x^2+y^2+z^2} \label{eq:r}\\
+ &\theta = \cos\L(\frac{z}{\sqrt{x^2+y^2+z^2}}\R) \label{eq:theta}\\
+ &\phi = \tan\L(\frac{y}{x}\R) \label{eq:phi}
+ \end{align}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+ \begin{align}
  &x = r\sin(\theta)\cos(\phi) \label{eq:x}\\
  &y = r\sin(\theta)\sin(\phi) \label{eq:y}\\
  &z = r\cos(\theta) \label{eq:z}
-\end{align}
+ \end{align} 
+\end{minipage}
 %
-where $\theta \in [0,\pi)$ and $\phi \in [0,2\pi)$ are the parameters. The 
-sphere is non-Euclidean, but small enough parts of it is. In constraint form 
-the equation can be written as
+The Cartesian coordinates written in terms of the spherical coordinates (the 
+inverse transformation) is found from equation (\ref{eq:x} - \ref{eq:z}),
+where $\theta \in [0,\pi)$ and $\phi \in [0,2\pi)$.
+
+The sphere (or rather the locus of all points making the sphere) is found 
+by fixing $r$, and let $\theta$ and $\phi$ run over all points (see figure 
+\ref{fig:sphere}). Note that these points can be written in both the Cartesian 
+and the spherical coordinate system. In general, a \emph{coordinate 
+(hyper)surface} is the (hyper)surface one get if one holds one of the 
+coordinates constant, and let all the other variables vary. %
+\footnote{In the example of a sphere: $\theta$ and $\phi$ can take all 
+	  possible values in the domain, even though not all combinations of 
+	  $x$, $y$ and $z$ are allowed due to the constraint.}%
+%
+A \emph{coordinate curve} is the collection of point one gets by intersection of 
+two coordinate (hyper)surfaces.
+
+Note that the sphere itself is non-Euclidean, but small enough parts of it is. 
+An often used analogy is to say that although the earth is not flat, it may 
+sometimes appear somewhat flat to us since we are so small compared to the 
+earth.
+
+In \emph{constraint} form the sphere can be written as
 %
 \begin{align*}
  x^2+y^2+z^2-r^2 = 0
@@ -60,7 +96,14 @@ the equation can be written as
 %
 If we have $m$ dimensions in the subsurface embedded in an $n$-dimensional 
 manifold, we must have $n-m$ constraints.
-
+%
+\begin{figure}[h!]
+\center
+ \includegraphics[width=0.5\textwidth]{figures/Spherical_coordinate_elements}
+ \caption{Coordinate curves and coordinate surfaces of the spherical 
+	  coordinate system.}
+ \label{fig:sphere}
+\end{figure}
 
 
 
@@ -74,20 +117,33 @@ geometric object.
 Each point on a $n$-dimensional manifold possesses a set of 
 $n$ coordinates. Coordinate systems which covers only a part of the manifold is 
 called a \emph{coordinate patch}. A set of coordinate patches that covers the 
-whole manifold is called an \emph{atlas} The theory of manifolds tells us how 
+whole manifold is called an \emph{atlas}. The theory of manifolds tells us how 
 to get from one coordinate patch to another by a coordinate transformation in 
-the overlap region.
+the overlap region. 
 
-As seen from equation (\ref{eq:x} - \ref{eq:z}), the coordinates 
-are given in terms of three other variables $r$, $\theta$ and $\phi$, which in 
-themselves form a different coordinate system. We have
+We can describe curvilinear coordinates in a mathematical language: A 
+curvilinear coordinate system is simply a coordinate patch on the differentiable 
+manifold $\mathbb{E}^n$ ($n$-dimensional Euclidean space) that is diffeomorphic 
 %
-\begin{align*}
- &r = \sqrt{x^2+y^2+z^2}\\
- &\theta = \arccos\L(\frac{z}{\sqrt{x^2 + y^2 + z^2}}\R)\\
- &\phi = \arctan\L(\frac{y}{x}\R)
-\end{align*}
+\footnote{Diffeomorphism is an isomorphism\footnotemark of smooth manifolds.}%
+\footnotetext{An isomorphism is a homomorphism\footnotemark(or more generally a 
+              morphism\footnotemark) that admits an inverse.}%
+\footnotetext[3]{A homomorphism is a structure-preserving map between two 
+                 algebraic structures (such as groups, rings, or vector 
+                 spaces).}%
+\footnotetext{Morphism refers to a structure-preserving map from one 
+              mathematical structure to another(generalizes the idea of 
+	      a function).}%
 %
+to the Cartesian coordinate patch on the manifold.
+
+
+
+
+
+
+
+\section{Change of coordinates} \label{sec:change_of_coordinates}
 In general the change of coordinates $x^a \to x'^a$ is given by
 %
 \begin{align}
@@ -101,67 +157,65 @@ of a contravariant tensor, and that the dangerous notation $(x')^a =
 x^a(x^1,x^2,\ldots,x^n)$ often is used.
 
 
-
-
-
-
-\section{Change of coordinates} \label{sec:change_of_coordinates}
-If we know how the bases relative to each other, for example
-%
-\begin{align}
- &\ve{a}_1=\frac{1}{\sqrt{2}}(\ve{b}_1 + \ve{b}_2)&
- &\ve{a}_2=3\ve{b}_2
- \label{eq:eq_with_basis_vector}
-\end{align}
-%
-We can write
-%
-\begin{align*}
- [\ve{v}]_b &= A_{a\to b}[\ve{v}]_a\\
+\begin{example}{Change of basis}
+ If we know how the bases relative to each other, for example
  %
+ \begin{align}
+  &\ve{a}_1=\frac{1}{\sqrt{2}}(\ve{b}_1 + \ve{b}_2)&
+  &\ve{a}_2=3\ve{b}_2
+  \label{eq:eq_with_basis_vector}
+ \end{align}
  %
- \begin{bmatrix}
-  v_{1,b}\\
-  v_{2,b}
- \end{bmatrix}_b
- &=
+ We can write
+ %
+ \begin{align*}
+  [\ve{v}]_b &= A_{a\to b}[\ve{v}]_a\\
+  %
+  %
   \begin{bmatrix}
-  [\ve{a}_1]_b & [\ve{a}_2]_b
- \end{bmatrix}_{a\to b}
+   v_{1,b}\\
+   v_{2,b}
+  \end{bmatrix}_b
+  &=
    \begin{bmatrix}
-  v_{1,a}\\
-  v_{2,a}
- \end{bmatrix}_a\\
- %
- %
- \begin{bmatrix}
-  v_{1,b}\\
-  v_{2,b}
- \end{bmatrix}_b
- &=
+   [\ve{a}_1]_b & [\ve{a}_2]_b
+  \end{bmatrix}_{a\to b}
+    \begin{bmatrix}
+   v_{1,a}\\
+   v_{2,a}
+  \end{bmatrix}_a\\
+  %
+  %
   \begin{bmatrix}
-  \frac{1}{\sqrt{2}} & 0\\
-  \frac{1}{\sqrt{2}} & 3
- \end{bmatrix}_{a\to b}
+   v_{1,b}\\
+   v_{2,b}
+  \end{bmatrix}_b
+  &=
    \begin{bmatrix}
-  v_{1,a}\\
-  v_{2,a}
- \end{bmatrix}_a\\
- %
- %
- v_{1,b} &= \frac{1}{\sqrt{2}}v_{1,a}
- \numberthis \label{eq:coord_v1b}\\
- v_{2,b} &= \frac{1}{\sqrt{2}}v_{1,a} + 3v_{2,a} 
- \numberthis \label{eq:coord_v2b}
-\end{align*}
+   \frac{1}{\sqrt{2}} & 0\\
+   \frac{1}{\sqrt{2}} & 3
+  \end{bmatrix}_{a\to b}
+    \begin{bmatrix}
+   v_{1,a}\\
+   v_{2,a}
+  \end{bmatrix}_a\\
+  %
+  %
+  v_{1,b} &= \frac{1}{\sqrt{2}}v_{1,a}
+  \numberthis \label{eq:coord_v1b}\\
+  v_{2,b} &= \frac{1}{\sqrt{2}}v_{1,a} + 3v_{2,a} 
+  \numberthis \label{eq:coord_v2b}
+ \end{align*}
+\end{example}
 %
 The example here was in rectilinear coordinates (so there is no difference 
 between co- and contravariant tensors), but in general (and for contravariant 
 vectors), we have that%
 \footnote{We will here use index notation (which means that the individual 
-tensors in an expression gets individual indices) with the Einstein summation 
-rule (when an index variable appears twice in a single term (called a dummy 
-index) it implies summation of that term over all the values of the index).}
+          tensors in an expression gets individual indices) with the Einstein 
+          summation rule (when an index variable appears once as upper index 
+          and once as lower index in a single term (called a dummy index) it 
+          implies summation of that term over all the values of the index).}
 %
 \begin{align}
  A_{\text{unprimed}\to \text{primed}}
@@ -184,119 +238,123 @@ $\begin{bmatrix}
 has the determinant $1/J$.
 
 \vspace{0.5cm}
-\begin{greenbox}{Mnemonic: Lowest index = row number in $A_{x \to x'}$}
-A way to remember that the lowest index denotes the row 
-number (that is the index $^j$ in equation (\ref{eq:contravariant_matrix})), is 
-to observe that rows are located under each other, and that the lowest index 
-(index $^j$ in equation (\ref{eq:contravariant_matrix})) is 
-located under the upper index (index $^i$ in equation 
-(\ref{eq:contravariant_matrix})). 
+\begin{greenbox}{Mnemonic: $(A_{x \to x'})_{i,j} = \parti{x^i}{(x')^j}$}
+ A way to remember what are the rows and columns if we want to write $A_{x \to 
+ x'}$ as a matrix, is to remember that the $i$ denotes the rows number and 
+ $j$ denotes column number in $A_{i,j}$.
 \end{greenbox}
 
-\subsection{Example: Transformation of vector field from cylindrical to 
-Cartesian coordinate system}
-Let's assume we have a (contravariant) vector given in the basis $\{\hv{\rho}, 
-\hv{\phi}, \hv{z}\}$, and would like to express it in the Cartesian basis 
-$\{\hv{x}, \hv{y}, \hv{z}\}$. The transformation equations (the coordinates 
-written as a function of the other coordinates) read
-%
-\begin{align*}
- &x = r \cos\phi&
- &r = \sqrt{x^2+y^2}&
- \\
- &y = r \cos\phi&
- &\phi = \atan\L(\frac{y}{x}\R)&
- \\
- &z=z&
- &z=z&
-\end{align*}
-%
-Note that
-%
-\begin{align}
- \ve{A} =
- A_x \hv{x} + A_y \hv{y} + A_z \hv{z} =
- A_\rho \hv{\rho} + A_\phi \hv{\phi} + A_z  \hv{z}
- \label{eq:component}
-\end{align}
-%
-So if we know how the $\hv{x}$, $\hv{y}$ and $\hv{z}$ can be written in terms 
-of $\hv{\rho}$, $\hv{\phi}$ and $\hv{z}$, we can simply write the components 
-in the new coordinate system to complete the transformation.
+\begin{example}{Vector field transformation by using the transformation matrix}
+ \label{ex:vft}
+ Let's assume we have a (contravariant) vector given in the basis $\{\hv{\rho}, 
+ \hv{\phi}, \hv{z}\}$, and would like to express it in the Cartesian basis 
+ $\{\hv{x}, \hv{y}, \hv{z}\}$. The transformation equations (the coordinates 
+ written as a function of the other coordinates) read
+ %
+ \begin{align*}
+  &x = r \cos\phi&
+  &r = \sqrt{x^2+y^2}&
+  \\
+  &y = r \sin\phi&
+  &\phi = \atan\L(\frac{y}{x}\R)&
+  \\
+  &z=z&
+  &z=z&
+ \end{align*}
+ %
+ Note that
+ %
+ \begin{align}
+  \ve{A} =
+  A_x \hv{x} + A_y \hv{y} + A_z \hv{z} =
+  A_\rho \hv{\rho} + A_\phi \hv{\phi} + A_z  \hv{z}
+  \label{eq:component}
+ \end{align}
+ %
+ So if we know how the $\hv{x}$, $\hv{y}$ and $\hv{z}$ can be written in terms 
+ of $\hv{\rho}$, $\hv{\phi}$ and $\hv{z}$, we can simply write the components 
+ in the new coordinate system to complete the transformation. We will here use 
+ the notation $_{\{\hv{x}_1, \hv{x}_2, \hv{x}_3\}} \ve{A}$, meaning the vector 
+ $\ve{A}$ described in the basis ${\{\hv{x}_1, \hv{x}_2, \hv{x}_3\}}$.
+ 
+ Let us try to use (\ref{eq:contravariant_matrix}). We get
+ %
+ \begin{align*}
+  _{\{\hv{x}, \hv{y}, \hv{z}\}} \ve{A}
+   =
+   \L[\parti{(x, y, z)}{(\rho, \phi, z)}\R] \;
+    _{\{\ve{\rho}, \ve{\phi},\ve{z}\}}\ve{A}
+   = \begin{bmatrix} \cos\phi & -\rho\sin\phi & 0 \\
+                     \sin\phi &  \rho\cos\phi & 0 \\
+                     0 & 0 & 1
+  \end{bmatrix} \;
+  _{\{\ve{\rho}, \ve{\phi},\ve{z}\}}\ve{A}
+ \end{align*}
+ %
+ If we try to transform $\ve{\phi}$, we get
+ %
+ \begin{align*} 
+   \begin{bmatrix} \cos\phi & -\rho\sin\phi & 0 \\
+                     \sin\phi &  \rho\cos\phi & 0 \\
+                     0 & 0 & 1
+  \end{bmatrix}
+  \begin{bmatrix} 0 \\
+ 		 1 \\
+ 		 0 \\
+  \end{bmatrix}
+  =
+  \begin{bmatrix} -\rho\sin\phi \\
+ 		 \rho\cos\phi \\
+ 		 0 \\
+  \end{bmatrix}
+ \end{align*}
+ %
+ Meaning that 
+ %
+ \begin{align*}
+  \ve{\phi} = -\rho\sin\phi \hv{x} + \rho\cos\phi \hv{y}
+ \end{align*}
+ %
+ We see that this vector has length $\rho$, but we wanted to transform from 
+ something written in a unit basis (where all the basis vectors has length 
+$1$). 
+ To ensure this we must normalize the columns in the transformation matrix to 
+ one, in other words, we must use
+ %
+ \begin{align*}
+   \L[
+      \frac{\displaystyle \parti{(x, y, z)}{\phi}}{
+            \displaystyle \L\|\parti{(x,y, z)}{\phi}\R\| } \R]
+ \end{align*}
+ %
+ for each column in the transformation matrix. We will use the notation
+ %
+ \begin{align*}
+   \L[
+      \frac{\displaystyle \parti{(x, y, z)}{(\rho, \phi, z)}}{
+            \displaystyle \L\|\parti{(x,y, z)}{(\rho, \phi, z)}\R\| } \R]
+ \end{align*}
+ %
+ to denote that all the columns in the transformation matrix is normalized. 
+With 
+ this notation, we finally get that
+ %
+ \begin{align*}
+  _{\{\hv{x}, \hv{y}, \hv{z}\}} \ve{A}
+   =
+     \L[
+      \frac{\displaystyle \parti{(x, y, z)}{(\rho, \phi, z)}}{
+            \displaystyle \L\|\parti{(x,y, z)}{(\rho, \phi, z)}\R\| } \R] \;
+    _{\{\hv{\rho}, \hv{\phi},\hv{z}\}}\ve{A}
+   = \begin{bmatrix} \cos\phi & -\sin\phi & 0 \\
+                     \sin\phi &  \cos\phi & 0 \\
+                     0 & 0 & 1
+  \end{bmatrix} \;
+  _{\{\hv{\rho}, \hv{\phi},\hv{z}\}}\ve{A}
+ \end{align*}
+\end{example}
 
-Let us try to use (\ref{eq:contravariant_matrix}). We get
-%
-\begin{align*}
- _{\{\hv{x}, \hv{y}, \hv{z}\}} \ve{A}
-  =
-  \L[\parti{(x, y, z)}{(\rho, \phi, z)}\R] \;
-   _{\{\ve{\rho}, \ve{\phi},\ve{z}\}}\ve{A}
-  = \begin{bmatrix} \cos\phi & -\rho\sin\phi & 0 \\
-                    \sin\phi &  \rho\cos\phi & 0 \\
-                    0 & 0 & 1
- \end{bmatrix} \;
- _{\{\ve{\rho}, \ve{\phi},\ve{z}\}}\ve{A}
-\end{align*}
-%
-If we try to transform $\ve{\phi}$, we get
-%
-\begin{align*} 
-  \begin{bmatrix} \cos\phi & -\rho\sin\phi & 0 \\
-                    \sin\phi &  \rho\cos\phi & 0 \\
-                    0 & 0 & 1
- \end{bmatrix}
- \begin{bmatrix} 0 \\
-		 1 \\
-		 0 \\
- \end{bmatrix}
- =
- \begin{bmatrix} -\rho\sin\phi \\
-		 \rho\cos\phi \\
-		 0 \\
- \end{bmatrix}
-\end{align*}
-%
-Meaning that 
-%
-\begin{align*}
- \ve{\phi} = -\rho\sin\phi \hv{x} + \rho\cos\phi \hv{y}
-\end{align*}
-%
-We see that this vector has length $\rho$, but we wanted to transform from 
-something written in a unit basis (where all the basis vectors has length $1$). 
-To ensure this we must normalize the columns in the transformation matrix to 
-one, in other words, we must use
-%
-\begin{align*}
-  \L[
-     \frac{\displaystyle \parti{(x, y, z)}{\phi}}{
-           \displaystyle \L\|\parti{(x,y, z)}{\phi}\R\| } \R]
-\end{align*}
-%
-for each column in the transformation matrix. We will use the notation
-%
-\begin{align*}
-  \L[
-     \frac{\displaystyle \parti{(x, y, z)}{(\rho, \phi, z)}}{
-           \displaystyle \L\|\parti{(x,y, z)}{(\rho, \phi, z)}\R\| } \R]
-\end{align*}
-%
-to denote that all the columns in the transformation matrix is normalized. With 
-this notation, we finally get that
-%
-\begin{align*}
- _{\{\hv{x}, \hv{y}, \hv{z}\}} \ve{A}
-  =
-    \L[
-     \frac{\displaystyle \parti{(x, y, z)}{(\rho, \phi, z)}}{
-           \displaystyle \L\|\parti{(x,y, z)}{(\rho, \phi, z)}\R\| } \R] \;
-   _{\{\hv{\rho}, \hv{\phi},\hv{z}\}}\ve{A}
-  = \begin{bmatrix} \cos\phi & -\sin\phi & 0 \\
-                    \sin\phi &  \cos\phi & 0 \\
-                    0 & 0 & 1
- \end{bmatrix} \;
- _{\{\hv{\rho}, \hv{\phi},\hv{z}\}}\ve{A}
-\end{align*}
+
 
 
 
@@ -508,19 +566,23 @@ It actually makes sense if one consider the \emph{tangent space}. Let us
 consider a point $P$ on our manifold (for example the sphere in the example in 
 section \ref{sec:coord}). If we draw all possible curves (for example 
 the curve $S(r,\theta,\phi)$ parametrized by $t$ [that is 
-$S(r,\theta,\phi) = S(r(t),\theta(t),\phi(t))$]) through $P$ and take the 
-directional 
-derivative $\Bigg($that is $\deri{S}{t} = \parti{S}{r}\parti{r}{t} + 
-\parti{S}{\theta}\parti{\theta}{t} + \parti{S}{\phi}\parti{\phi}{t}\Bigg)$ of 
-each curve, we can generate a collection of tangents to $P$, which is called 
-the tangent space. Notice that the partial derivative $\parti{S}{x^i}$ at 
-the point is the change of the line along the coordinate $x^i$. Thus the tuple 
-of all $\parti{S}{x^i}$ $\Bigg($in our case $\L\{\parti{S}{r}, 
-\parti{S}{\theta}, \parti{S}{\phi}\R\} \Bigg)$ are along the direction 
-which spans the tangent space (see figure \ref{fig:basis}). This is true for all 
-curves $\in C^{\infty}$ (that is, smooth curves). Notice that the partial 
-derivative of the curve along the coordinate direction transforms covariantly 
-(as shown in (\ref{foot:phi})), and is independent of the curve $S$.
+$S(r,\theta,\phi) = S(r(t),\theta(t),\phi(t))$]%
+%
+\footnote{\label{note:curve}Note that this can be any curve going through the 
+          point of consideration. Do not confuse it with the coordinate curve.}%
+%
+) through $P$ and take the directional derivative $\Bigg($that is $\deri{S}{t} = 
+\parti{S}{r}\parti{r}{t} + \parti{S}{\theta}\parti{\theta}{t} + 
+\parti{S}{\phi}\parti{\phi}{t}\Bigg)$ of each curve, we can generate a 
+collection of tangents to $P$, which is called the tangent space. Notice that 
+the partial derivative $\parti{S}{x^i}$ at the point is the change of the line 
+along the coordinate $x^i$. Thus the tuple of all $\parti{S}{x^i}$ $\Bigg($in 
+our case $\L\{\parti{S}{r}, \parti{S}{\theta}, \parti{S}{\phi}\R\} \Bigg)$ are 
+along the direction which spans the tangent space (see figure \ref{fig:basis}). 
+This is true for all curves $\in C^{\infty}$ (that is, smooth curves). Notice 
+that the partial derivative of the curve along the coordinate direction 
+transforms covariantly (as shown in (\ref{foot:phi})), and is independent of the 
+curve $S$.
 
 A tangent vector $\ve{X}$ (a vector living in the tangent space) can thus be 
 written in operator form as $\ve{X}=a^i\parti{}{x^{i}}$. The dual space to 
@@ -551,6 +613,23 @@ in figure \ref{fig:basis}.
  expression on $\parti{f((x')(x))}{x^i}$.\\
  Contravariant unit vectors: Use the chain rule of the infinitesimal.
 \end{greenbox}
+%
+Finally, note that some authors prefer the somewhat bad notation $\ve{e}_i = 
+\grad u^i$ and $\ve{e}^i = \parti{\ve{R}}{u^i}$, where $\ve{R}(\ve{u})$ is a 
+curve\hyperref[note:curve]{$^9$}.The notation differs from what introduced 
+above by explicitly specifying the curve under consideration.
+
+For the covariant basis-vectors, we observe that $\ve{e}^i = \parti{}{u^i}$ 
+with $\ve{R}$ as the curve under consideration gives $\parti{\ve{R}}{u^i}$.
+
+It can be a bit trickier to explain how $\grad u^i$ comes about, but if we 
+consider $\d u^i = \parti{u^i}{R^j} \d R^j$ as an operator, and let it operate 
+on the tangent $\parti{}{R^k}$, we get $\d u^i\L(\parti{}{R^k}\R) = 
+\parti{u^i}{R^j} \d R^j\L(\parti{}{R^k}\R) = \parti{u^i}{R^j} \delta^j_k = 
+\parti{u^i}{R^k}$ and define $\parti{u^i}{R^j}$ as $\nabla u^i$, we end up with 
+the same.
+
+
 
 
 
@@ -620,11 +699,11 @@ one above. We have that
 
 
 
-\section{A transformation example}
+\section{Transformation of a vector through transformation of the basis vectors}
 Let's say that we would to go from a description in Cartesian coordinates 
 (given by the coordinates $\ve{R}$), to a description in curvilinear (given by 
-the coordinates $\ve{u}$). We have that the component in the curvilinear 
-coordinates can be written like $(v')^i = 
+the coordinates $\ve{u}$). We have that the component in the Cartesian
+coordinates can be written as $(v')^i = 
 (v')^i(\ve{R}(\ve{u}))$, where 
 $\ve{R}(\ve{u}) =
  \begin{bmatrix}
@@ -633,7 +712,8 @@ $\ve{R}(\ve{u}) =
   x^3(u^1,u^2,u^3)
  \end{bmatrix}
 $
-and that the components written in the Cartesian coordinates can be written like
+and that the components written in the curvilinear coordinates can be written 
+as
 $v^i = 
 v^i(\ve{u}(\ve{R}))$, where 
 $\ve{u}(\ve{R}) =
@@ -642,8 +722,8 @@ $\ve{u}(\ve{R}) =
   u^2(x^1,x^2,x^3)&
   u^3(x^1,x^2,x^3)
  \end{bmatrix}
-$. The transformation from curvilinear to Cartesian coordinates can be written 
-like
+$. The transformation from Cartesian to curvilinear coordinates can be written 
+as
 %
 \begin{align*}
  \ve{v} &=
@@ -661,20 +741,9 @@ like
  w_i \parti{R^i}{u^j}\ve{e}^j
 \end{align*}
 %
-Notice that the notation can appear somewhat confusing. We have that a 
-vector $\ve{a}$ is represented contravariantly as $(a')^i(\ve{e}')_i$ in the 
-primed basis and as $(a')^i \parti{R^i}{u^j} \ve{e}_j$ in the unprimed 
-basis, which makes $(a')^i = a^i$. 
+Although it may appear different, this way of transforming yields just the same 
+as was shown in example \hyperref[ex:vft]{2}.
 
-Further note that some authors prefer the somewhat bad notation $\ve{e}_i = 
-\grad u^i$, which translates to: ``The Cartesian basis vector written 
-contravariantly in $u$-coordinates'' (the notation misses the last 
-$\parti{}{u^j}$ in order to be correct), and $\ve{e}^i = \parti{\ve{R}}{u^i}$ 
-translates to: ``The Cartesian basis vector written covariantly in 
-$u$-coordinates'' (the notation misses the last $\text{d}u^j$ in order to be 
-correct).
-
-%http://physics.stackexchange.com/questions/57754/what-is-a-dual-cotangent-space
 
 \nocite{diverno_1992}
 \nocite{arfken_2012}
@@ -685,6 +754,8 @@ correct).
 \nocite{physics_forum}
 \nocite{wiki_cot_space}
 \nocite{mathworld_pseudo}
+\nocite{wiki_curvilinear}
+%http://physics.stackexchange.com/questions/57754/what-is-a-dual-cotangent-space
 
 \markboth{Bibliography}{}
 \bibliographystyle{../../../LaTeX/prsty}
