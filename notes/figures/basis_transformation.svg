@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="943.44177"
+   height="714.67938"
+   id="svg5734"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="basis_transformation.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1151"
+     id="namedview47"
+     showgrid="false"
+     inkscape:zoom="1.2931376"
+     inkscape:cx="594.36054"
+     inkscape:cy="306.67553"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs5736">
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Lendu"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         id="path4659"
+         style="fill:#0000ff;fill-rule:evenodd;stroke:#0000ff;stroke-width:1pt" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1LendL"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         id="path4656"
+         style="fill:#0000ff;fill-rule:evenodd;stroke:#0000ff;stroke-width:1pt" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Lendp"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         id="path4665"
+         style="fill:#0000ff;fill-rule:evenodd;stroke:#0000ff;stroke-width:1pt" />
+    </marker>
+  </defs>
+  <metadata
+     id="metadata5739">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-2.5648805,-177.88023)"
+     id="layer1">
+    <g
+       transform="translate(-2285.6026,-70.271939)"
+       id="g5647">
+      <g
+         transform="translate(2308.5714,57.142857)"
+         id="g4907">
+        <g
+           id="g3820">
+          <path
+             d="M 79.802055,773.56007 C 33.335035,816.99663 48.487325,875.58548 93.944195,862.4535 139.40105,849.32151 157.5838,849.32151 134.35029,805.88496 111.11678,762.4484 79.802055,773.56007 79.802055,773.56007 z"
+             id="path2999"
+             style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <path
+             d="M 47.534315,769.82893 C -12.064685,848.62083 3.3401347,936.7566 103.34523,890.28962 203.35034,843.82261 236.68537,780.183 152.84271,757.95964 69.000055,735.73628 47.534315,769.82893 47.534315,769.82893 z"
+             id="path3001"
+             style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        </g>
+        <g
+           transform="translate(117.1777,30.304576)"
+           id="g3812">
+          <path
+             d="m 523.13275,692.74787 c 4.04061,80.81221 40.53237,146.59839 94.07045,89.0197 53.53809,-57.5787 130.30968,-90.02984 59.599,-165.79129 -70.71068,-75.76144 -31.31473,-112.00066 -107.07617,-55.43212 -75.76144,56.56854 -57.57869,71.72083 -57.57869,73.74114 0,2.0203 23.23351,19.1929 17.17259,31.31473 -6.06091,12.12183 -6.18718,27.14784 -6.18718,27.14784 z"
+             id="path3017"
+             style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <path
+             d="m 544.48502,665.45314 c 17.14286,81.42857 113.75,78.21429 113.75,21.07143 0,-57.14286 -18.57143,-125.53572 -67.14286,-88.39286 -48.57143,37.14286 -46.60714,67.32143 -46.60714,67.32143 z"
+             id="path3030"
+             style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        </g>
+        <path
+           d="m 300.01531,380.61074 c -205.060971,160.61425 -83.84267,329.30973 49.49747,293.95439 133.34014,-35.35534 18.18275,-70.71068 68.69037,-142.43151 50.50763,-71.72083 42.42641,-135.36044 38.3858,-141.42135 -4.04061,-6.06092 -13.13198,-46.46702 -40.4061,-68.69038 -27.27412,-22.22335 -116.16754,58.58885 -116.16754,58.58885 z"
+           transform="translate(52.527932,-76.771593)"
+           id="path2993"
+           style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        <path
+           d="m 271.19367,476.98732 c -18.57143,52.85715 -34.28571,54.28571 5.71429,80 39.99999,25.71429 74.28571,12.85714 101.42856,-37.14286 27.14286,-50 2.85715,-82.85714 -42.85714,-90 -45.71428,-7.14285 -64.28571,47.14286 -64.28571,47.14286 z"
+           transform="translate(52.527932,-76.771593)"
+           id="path3034"
+           style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        <path
+           d="M 737.41136,757.39764 C 404.06102,927.10327 101.01525,844.27076 101.01525,844.27076"
+           id="path3830"
+           style="fill:none;stroke:#0000ff;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Lendu)" />
+        <path
+           d="M 341.43156,430.10822 C 90.913729,549.30622 80.812204,791.74283 80.812204,791.74283"
+           id="path3832"
+           style="fill:none;stroke:#0000ff;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1LendL)" />
+        <path
+           d="M 385.87827,413.94577 C 688.92404,422.02699 727.30983,662.4433 727.30983,662.4433"
+           id="path4464"
+           style="fill:none;stroke:#0000ff;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow1Lendp)" />
+      </g>
+      <text
+         x="2819.3357"
+         y="601.83411"
+         id="text4768"
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+           x="2819.3357"
+           y="601.83411"
+           id="tspan4770">x(m)</tspan></text>
+      <text
+         x="2553.6655"
+         y="872.55505"
+         id="text4772"
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+           x="2553.6655"
+           y="872.55505"
+           id="tspan4774">g(x(m)) = F(x)</tspan></text>
+      <text
+         x="2475.884"
+         y="682.64636"
+         id="text4776"
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+           x="2475.884"
+           y="682.64636"
+           id="tspan4778">f(m)</tspan></text>
+      <text
+         x="2652.6606"
+         y="486.67676"
+         id="text4780"
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+           x="2652.6606"
+           y="486.67676"
+           id="tspan4782">m</tspan></text>
+      <text
+         x="2385.9802"
+         y="884.67688"
+         id="text4784"
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+           x="2385.9802"
+           y="884.67688"
+           id="tspan4786">s</tspan></text>
+      <text
+         x="2975.9097"
+         y="574.56006"
+         id="text4788"
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         sodipodi:linespacing="125%"><tspan
+           x="2975.9097"
+           y="574.56006"
+           id="tspan4790"></tspan></text>
+      <text
+         x="2724.8953"
+         y="278.7139"
+         id="text4788-6"
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         sodipodi:linespacing="125%"><tspan
+           x="2724.8953"
+           y="278.7139"
+           id="tspan4790-4"
+           style="text-align:center;text-anchor:middle">Vector space of field ℝ<tspan
+   id="tspan4963"
+   style="font-size:65.00091553%;text-align:center;text-anchor:middle;baseline-shift:super">n</tspan> in basis A</tspan><tspan
+           x="2724.8953"
+           y="328.7139"
+           id="tspan4967"
+           style="text-align:center;text-anchor:middle" /></text>
+      <text
+         x="2284.2612"
+         y="839.34857"
+         id="text4788-4"
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+           x="2284.2612"
+           y="839.34857"
+           id="tspan4790-0">ℝ<tspan
+   id="tspan4841"
+   style="font-size:65.00091553%;baseline-shift:super">1</tspan></tspan></text>
+      <text
+         x="2984.657"
+         y="757.81488"
+         id="text4768-5"
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+           x="2984.657"
+           y="757.81488"
+           id="tspan4770-1">x(m)</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         x="3104.1897"
+         y="508.12354"
+         id="text3033"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3035"
+           x="3104.1897"
+           y="508.12354"
+           style="text-align:center;text-anchor:middle">Vector space</tspan><tspan
+           sodipodi:role="line"
+           x="3104.1897"
+           y="558.12354"
+           style="text-align:center;text-anchor:middle"
+           id="tspan3043">of field ℝ<tspan
+   style="font-size:65.00091553%;text-align:center;text-anchor:middle;baseline-shift:super"
+   id="tspan3039">n</tspan></tspan><tspan
+           sodipodi:role="line"
+           x="3104.1897"
+           y="608.12354"
+           style="text-align:center;text-anchor:middle"
+           id="tspan3050">in basis A'</tspan></text>
+    </g>
+  </g>
+</svg>

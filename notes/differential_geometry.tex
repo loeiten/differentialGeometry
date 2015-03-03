@@ -1,0 +1,692 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{../../../LaTeX/general}
+\title{\vspace{-8ex}A short note about differential geometry\vspace{-1ex}}
+\author{Michael L{\o}iten}
+\date{\vspace{-2ex}\today}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Differential geometry}
+\chead{}
+\rhead{\today}
+\cfoot{\thepage}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+
+%===================================================
+\everymath{\displaystyle}
+\usepackage{titlesec}
+%\titleformat*{\section}{\bfseries}%\vspace{-0.2cm}}
+
+
+% Section without numbering
+%\renewcommand\thesection{\hspace{-0.5cm}}
+%===================================================
+
+\renewcommand{\arraystretch}{0.8}
+
+% References
+\def\divurl{http://physicspages.com/index-physics-relativity/dinverno-introducing-einsteins-relativity-problems/}
+\def\cotan{https://www.physicsforums.com/threads/basis-for-tangent-space-and-cotangent-space.283108/}
+
+
+\begin{document}
+\maketitle
+
+\section{Manifold}
+A \emph{manifold} is a geometric object that consist of a collection of points 
+(that is a locus of points), each point satisfying the condition that the area 
+of the manifold near that point resembles Euclidean (flat space). The number $n$ 
+of dimensions needed to define a manifold is the number of parameters needed to 
+locate all the points on it.\\
+\\
+Example:\\
+A sphere in $\mathbb{R}^3$ is a 2D manifold. It needs two parameters to 
+trace out the surface (all the points of the manifold). We can write the circle 
+as
+%
+\begin{align}
+ &x = r\sin(\theta)\cos(\phi) \label{eq:x}\\
+ &y = r\sin(\theta)\sin(\phi) \label{eq:y}\\
+ &z = r\cos(\theta) \label{eq:z}
+\end{align}
+%
+where $\theta \in [0,\pi)$ and $\phi \in [0,2\pi)$ are the parameters. The 
+sphere is non-Euclidean, but small enough parts of it is. In constraint form 
+the equation can be written as
+%
+\begin{align*}
+ x^2+y^2+z^2-r^2 = 0
+\end{align*}
+%
+If we have $m$ dimensions in the subsurface embedded in an $n$-dimensional 
+manifold, we must have $n-m$ constraints.
+
+
+
+
+
+
+\section{Coordinates} \label{sec:coord}
+$x$, $y$ and $z$ in equation (\ref{eq:x} - \ref{eq:z}) are called 
+\emph{coordinates}. A coordinate system is a set of $n$ variables which fix a 
+geometric object.
+
+Each point on a $n$-dimensional manifold possesses a set of 
+$n$ coordinates. Coordinate systems which covers only a part of the manifold is 
+called a \emph{coordinate patch}. A set of coordinate patches that covers the 
+whole manifold is called an \emph{atlas} The theory of manifolds tells us how 
+to get from one coordinate patch to another by a coordinate transformation in 
+the overlap region.
+
+As seen from equation (\ref{eq:x} - \ref{eq:z}), the coordinates 
+are given in terms of three other variables $r$, $\theta$ and $\phi$, which in 
+themselves form a different coordinate system. We have
+%
+\begin{align*}
+ &r = \sqrt{x^2+y^2+z^2}\\
+ &\theta = \arccos\L(\frac{z}{\sqrt{x^2 + y^2 + z^2}}\R)\\
+ &\phi = \arctan\L(\frac{y}{x}\R)
+\end{align*}
+%
+In general the change of coordinates $x^a \to x'^a$ is given by
+%
+\begin{align}
+ (x')^a = f^a(x^1,x^2,\ldots,x^n)\qquad a\in{1,2,\ldots,n} \label{eq:transform}
+\end{align}
+%
+where the $f$'s are single valued, continuous differentiable function for 
+certain ranges of their arguments. Notice that the superscript in equation 
+(\ref{eq:transform}) does not refer to taking powers, but rather to components 
+of a contravariant tensor, and that the dangerous notation $(x')^a = 
+x^a(x^1,x^2,\ldots,x^n)$ often is used.
+
+
+
+
+
+
+\section{Change of coordinates} \label{sec:change_of_coordinates}
+If we know how the bases relative to each other, for example
+%
+\begin{align}
+ &\ve{a}_1=\frac{1}{\sqrt{2}}(\ve{b}_1 + \ve{b}_2)&
+ &\ve{a}_2=3\ve{b}_2
+ \label{eq:eq_with_basis_vector}
+\end{align}
+%
+We can write
+%
+\begin{align*}
+ [\ve{v}]_b &= A_{a\to b}[\ve{v}]_a\\
+ %
+ %
+ \begin{bmatrix}
+  v_{1,b}\\
+  v_{2,b}
+ \end{bmatrix}_b
+ &=
+  \begin{bmatrix}
+  [\ve{a}_1]_b & [\ve{a}_2]_b
+ \end{bmatrix}_{a\to b}
+   \begin{bmatrix}
+  v_{1,a}\\
+  v_{2,a}
+ \end{bmatrix}_a\\
+ %
+ %
+ \begin{bmatrix}
+  v_{1,b}\\
+  v_{2,b}
+ \end{bmatrix}_b
+ &=
+  \begin{bmatrix}
+  \frac{1}{\sqrt{2}} & 0\\
+  \frac{1}{\sqrt{2}} & 3
+ \end{bmatrix}_{a\to b}
+   \begin{bmatrix}
+  v_{1,a}\\
+  v_{2,a}
+ \end{bmatrix}_a\\
+ %
+ %
+ v_{1,b} &= \frac{1}{\sqrt{2}}v_{1,a}
+ \numberthis \label{eq:coord_v1b}\\
+ v_{2,b} &= \frac{1}{\sqrt{2}}v_{1,a} + 3v_{2,a} 
+ \numberthis \label{eq:coord_v2b}
+\end{align*}
+%
+The example here was in rectilinear coordinates (so there is no difference 
+between co- and contravariant tensors), but in general (and for contravariant 
+vectors), we have that%
+\footnote{We will here use index notation (which means that the individual 
+tensors in an expression gets individual indices) with the Einstein summation 
+rule (when an index variable appears twice in a single term (called a dummy 
+index) it implies summation of that term over all the values of the index).}
+%
+\begin{align}
+ A_{\text{unprimed}\to \text{primed}}
+ =
+ \begin{bmatrix}
+  \parti{(x')^i}{x^j}
+ \end{bmatrix}
+ \label{eq:contravariant_matrix}
+\end{align}
+%
+Where equation (\ref{eq:contravariant_matrix}) is a matrix with the $x$'s 
+referring to the different coordinates. The \emph{Jacobian} is 
+defined as $J\defined|A_{\text{unprimed}\to \text{primed}}|$. A sufficient 
+(but not necessary) requirement for having a well defined transformation is 
+that $J$ has to be finite in the point under consideration. Note that the matrix
+%
+$\begin{bmatrix}
+ \parti{x^i}{(x')^j}
+\end{bmatrix}$
+has the determinant $1/J$.
+
+\vspace{0.5cm}
+\begin{greenbox}{Mnemonic: Lowest index = row number in $A_{x \to x'}$}
+A way to remember that the lowest index denotes the row 
+number (that is the index $^j$ in equation (\ref{eq:contravariant_matrix})), is 
+to observe that rows are located under each other, and that the lowest index 
+(index $^j$ in equation (\ref{eq:contravariant_matrix})) is 
+located under the upper index (index $^i$ in equation 
+(\ref{eq:contravariant_matrix})). 
+\end{greenbox}
+
+\subsection{Example: Transformation of vector field from cylindrical to 
+Cartesian coordinate system}
+Let's assume we have a (contravariant) vector given in the basis $\{\hv{\rho}, 
+\hv{\phi}, \hv{z}\}$, and would like to express it in the Cartesian basis 
+$\{\hv{x}, \hv{y}, \hv{z}\}$. The transformation equations (the coordinates 
+written as a function of the other coordinates) read
+%
+\begin{align*}
+ &x = r \cos\phi&
+ &r = \sqrt{x^2+y^2}&
+ \\
+ &y = r \cos\phi&
+ &\phi = \atan\L(\frac{y}{x}\R)&
+ \\
+ &z=z&
+ &z=z&
+\end{align*}
+%
+Note that
+%
+\begin{align}
+ \ve{A} =
+ A_x \hv{x} + A_y \hv{y} + A_z \hv{z} =
+ A_\rho \hv{\rho} + A_\phi \hv{\phi} + A_z  \hv{z}
+ \label{eq:component}
+\end{align}
+%
+So if we know how the $\hv{x}$, $\hv{y}$ and $\hv{z}$ can be written in terms 
+of $\hv{\rho}$, $\hv{\phi}$ and $\hv{z}$, we can simply write the components 
+in the new coordinate system to complete the transformation.
+
+Let us try to use (\ref{eq:contravariant_matrix}). We get
+%
+\begin{align*}
+ _{\{\hv{x}, \hv{y}, \hv{z}\}} \ve{A}
+  =
+  \L[\parti{(x, y, z)}{(\rho, \phi, z)}\R] \;
+   _{\{\ve{\rho}, \ve{\phi},\ve{z}\}}\ve{A}
+  = \begin{bmatrix} \cos\phi & -\rho\sin\phi & 0 \\
+                    \sin\phi &  \rho\cos\phi & 0 \\
+                    0 & 0 & 1
+ \end{bmatrix} \;
+ _{\{\ve{\rho}, \ve{\phi},\ve{z}\}}\ve{A}
+\end{align*}
+%
+If we try to transform $\ve{\phi}$, we get
+%
+\begin{align*} 
+  \begin{bmatrix} \cos\phi & -\rho\sin\phi & 0 \\
+                    \sin\phi &  \rho\cos\phi & 0 \\
+                    0 & 0 & 1
+ \end{bmatrix}
+ \begin{bmatrix} 0 \\
+		 1 \\
+		 0 \\
+ \end{bmatrix}
+ =
+ \begin{bmatrix} -\rho\sin\phi \\
+		 \rho\cos\phi \\
+		 0 \\
+ \end{bmatrix}
+\end{align*}
+%
+Meaning that 
+%
+\begin{align*}
+ \ve{\phi} = -\rho\sin\phi \hv{x} + \rho\cos\phi \hv{y}
+\end{align*}
+%
+We see that this vector has length $\rho$, but we wanted to transform from 
+something written in a unit basis (where all the basis vectors has length $1$). 
+To ensure this we must normalize the columns in the transformation matrix to 
+one, in other words, we must use
+%
+\begin{align*}
+  \L[
+     \frac{\displaystyle \parti{(x, y, z)}{\phi}}{
+           \displaystyle \L\|\parti{(x,y, z)}{\phi}\R\| } \R]
+\end{align*}
+%
+for each column in the transformation matrix. We will use the notation
+%
+\begin{align*}
+  \L[
+     \frac{\displaystyle \parti{(x, y, z)}{(\rho, \phi, z)}}{
+           \displaystyle \L\|\parti{(x,y, z)}{(\rho, \phi, z)}\R\| } \R]
+\end{align*}
+%
+to denote that all the columns in the transformation matrix is normalized. With 
+this notation, we finally get that
+%
+\begin{align*}
+ _{\{\hv{x}, \hv{y}, \hv{z}\}} \ve{A}
+  =
+    \L[
+     \frac{\displaystyle \parti{(x, y, z)}{(\rho, \phi, z)}}{
+           \displaystyle \L\|\parti{(x,y, z)}{(\rho, \phi, z)}\R\| } \R] \;
+   _{\{\hv{\rho}, \hv{\phi},\hv{z}\}}\ve{A}
+  = \begin{bmatrix} \cos\phi & -\sin\phi & 0 \\
+                    \sin\phi &  \cos\phi & 0 \\
+                    0 & 0 & 1
+ \end{bmatrix} \;
+ _{\{\hv{\rho}, \hv{\phi},\hv{z}\}}\ve{A}
+\end{align*}
+
+
+
+\section{Co- and contravariant vectors}
+A basis is spanning the space and needs (in general) to be evaluated at each 
+point in the space. It can be thought of as a set of reference axes.
+A change of scale on the reference axes corresponds to a change of units in the 
+problem. For instance, in changing scale from meters to centimeters (that is, 
+dividing the scale of the reference axes by $100$), the components of a 
+measured velocity vector will multiply by $100$.
+
+For a vector (such as a direction vector or velocity vector) to be 
+basis-independent, the components of the vector must contra-vary with a change 
+of basis to compensate. The components of vectors (as opposed to those of dual 
+vectors) are said to be contravariant. Examples of vectors with contravariant 
+components include the position of an object relative to an observer, or any 
+derivative of position with respect to time.
+
+For a dual vector (also called a convector) to be basis-independent, the 
+components of the dual vector must co-vary with a change of basis to remain 
+representing the same convector. Examples of covariant vectors generally appear 
+when taking a gradient of a function.
+
+
+
+
+
+\subsection{Contravariant tensors}
+A contravariant vector (that is a tensor of rank $1$) is defined by a vector 
+which transforms as
+%
+\begin{align*}
+ (A')^i = \parti{(x')^i}{x^j} A^j
+\end{align*}
+%
+A higher rank tensor will transform as
+%
+\begin{align*}
+ (A')^{ab\ldots} = \parti{(x')^{a}}{x^{c}}\parti{(x')^{b}}{x^{d}}\ldots 
+A^{cd\ldots}
+\end{align*}
+%
+
+\vspace{0.5cm}
+\begin{greenbox}{Mnemonic: Contravariant components $= \; \uparrow$}
+ The indices in the components are up, and the primed quantity is on 
+top in the partial differential, since the ``n'' in ``contravariant'' can be 
+thought of as a arrow pointing up. The primed quantities are written with the 
+same index.
+\end{greenbox}
+%
+\subsubsection{Why the coordinates in equation (\ref{eq:transform}) are with 
+superscript}
+Consider two neighboring points $P$ and $Q$ on a manifold with coordinates 
+$x^a$ and $x^a + \text{d}x^a$. The infinitesimal vector $\ve{PQ} = 
+\text{d}x^a$, is attached to $P$. The components in another coordinate system 
+$x'^a=x'^a(x^a)$ can be found by using the chain rule
+%
+\begin{align}
+ \text{d}(x')^a = \parti{(x')^a}{x^b}\text{d}x^b \label{eq:infinitesimal_vec}
+\end{align}
+%
+and hence are components of equation (\ref{eq:transform}) written 
+contravariantly. Note that the vectors in equation (\ref{eq:infinitesimal_vec}) 
+are nothing but a specials cases of general vectors, and that one can always 
+find the transformation by using the chain rule.
+
+
+
+\subsection{Covariant tensors}
+Covariant vectors are defined by transforming as
+%
+\begin{align*}
+ (A')_i = \parti{x^j}{(x')^i} A_j
+\end{align*}
+%
+A higher rank tensor will transform as
+%
+\begin{align*}
+ (A')_{ab\ldots} = \parti{x^{c}}{(x')^{a}}\parti{x^{d}}{(x')^{b}}\ldots 
+A_{cd\ldots}
+\end{align*}
+%
+Note that differentiation of $\phi=\phi(x^b(x'))$ with respect to $(x')^a$ 
+gives the contravariant transformation matrix as 
+$\parti{\phi}{(x')^a}=\parti{x^b}{(x')^a}\parti{\phi}{x^b}$ due to the chain 
+rule. Note that it is always possible to use the chain rule in order to get 
+the transformation\label{foot:phi}.
+
+\vspace{0.5cm}
+\begin{greenbox}{Mnemonic: Covariant components $= \; \downarrow$}
+ The indices in the components are down, and the primed quantity is 
+ in the lower part of the partial differential, since the ``v'' in 
+ ``covariant'' can be thought of as an arrow pointing downwards. Note 
+ that the coordinates in the transformation matrix still have an upper 
+ index. The primed quantities are written with the same index.
+\end{greenbox}
+
+
+\subsection{Mixed tensors}
+A mixed tensor transforms as
+%
+\begin{align*}
+ (A')^{ab\ldots}_{\qquad cd\ldots} = 
+ \parti{(x')^{a}}{x^{e}}\parti{(x')^{b}}{x^{f}}\ldots 
+ \parti{x^{g}}{(x')^{c}}\parti{x^{h}}{(x')^{d}}\ldots 
+  A^{ef\ldots}_{\qquad gh\ldots}
+\end{align*}
+%
+Note the notation, and that $A^{ab\ldots}_{\qquad cd\ldots} \neq 
+A^{\qquad ab\ldots}_{cd\ldots}$ as $\ve{e}^a\ve{e}_c \neq \ve{e}_a\ve{e}^c$ in 
+general, and that tensors such as $A^{a\ldots \quad c\ldots}_{\quad b\ldots}$ 
+exist.
+
+At last, it is worth mentioning that any tensor equation (such as 
+$X_{ab}=Y_{ab}$) holds true in \textbf{every} coordinate system.
+
+
+
+
+\section{Pseudotensors}
+Up until this point we have only considered polar vectors, which transformed to 
+its negative under inversion of its coordinate axes. There is another type of 
+vectors called \emph{pseudovectors} or \emph{axial} vectors which are invariant 
+under inversion. Whereas polar tensors transforms as
+%
+\begin{align*}
+ \ve{A}' = \ve{S}\ve{A}
+\end{align*}
+%
+pseudotensors transforms as
+%
+\begin{align*}
+ \ve{A}' = \det(\ve{A})\ve{S}\ve{A}
+\end{align*}
+%
+Examples of pseudovectors include angular velocity vector $\ve{\omega}$, 
+angular momentum $\ve{L}$ and torque $\ve{\tau}$. All of these are defined 
+from a cross product. We have that
+%
+\begin{align*}
+ \text{vector} \times \text{vector} &= \text{pseudovector}\\
+ \text{pseudovector} \times \text{pseudovector} &= \text{pseudovector}\\
+ \text{pseudovector} \times \text{vector} &= \text{vector}\\
+ \text{vector} \times \text{pseudovector} &= \text{vector}\\
+\end{align*}
+%
+However $\ve{B}$ is also a pseudovector. One can convince oneself of that by 
+knowing that $\ve{v}$ and $F$ is a polar vector when looking at the Lorentz 
+force%
+\footnote{Note: The sum of a polar vector with a pseudovector is neither a 
+polar vector nor a pseudovector, and behaves rather strange under rotation. 
+Such vectors can occur, for example when calculating decay due to the weak 
+interaction.}%
+.
+
+
+
+
+\section{Basis vectors and metrics}
+In general a vector can be written as
+%
+\begin{align*}
+ \ve{A} = A^i\ve{e}_i = A_i\ve{e}^i
+\end{align*}
+%
+And a second rank tensor can be written in four different ways
+%
+\begin{align*}
+ \ve{A} = 
+ A^{ij}\ve{e}_i\ve{e}_j =
+ A_{ij}\ve{e}^i\ve{e}^j =
+ A^{i}_{\;\;j}\ve{e}^i\ve{e}_j =
+ A_{i}^{\;\;j}\ve{e}_i\ve{e}^j
+\end{align*}
+%
+Where the covariant basis (transforms covariantly) can be written as
+%
+\begin{align}
+ \ve{e}_i = \parti{}{x^i} \label{eq:cov_basis}
+\end{align}
+%
+and the contravariant basis (transforms contravariantly) can be written as
+%
+\begin{align}
+ \ve{e}^i = \text{d}x^i \label{eq:con_basis}
+\end{align}
+%
+(see figure \ref{fig:basis}).
+
+\vspace{0.5cm}
+\begin{greenbox}{Mnemonic: $\parti{}{x^i} = $ covariant,  $\text{d}x^i = $ 
+contravariant }
+ One can remember that $\parti{}{x^i}$ is the \emph{covariant} unit vector 
+and that $\text{d}x^i$ is the \emph{contravariant} unit vector by realizing 
+that the index in $\text{d}x^i$ is located above the index in $\parti{}{x^i}$, 
+and therefore we can use that the ``n'' in ``contravariant'' is ``pointing up'' 
+as described above.
+\end{greenbox}
+
+
+\subsection{Basis vectors in differential form}\label{sec:bvdf}
+The basis vectors written in equation (\ref{eq:cov_basis}) and 
+(\ref{eq:con_basis}) surely doesn't look like the ``classical'' basis vectors 
+one encountered when first facing linear algebra. They are rather defined as 
+operators. 
+
+It actually makes sense if one consider the \emph{tangent space}. Let us 
+consider a point $P$ on our manifold (for example the sphere in the example in 
+section \ref{sec:coord}). If we draw all possible curves (for example 
+the curve $S(r,\theta,\phi)$ parametrized by $t$ [that is 
+$S(r,\theta,\phi) = S(r(t),\theta(t),\phi(t))$]) through $P$ and take the 
+directional 
+derivative $\Bigg($that is $\deri{S}{t} = \parti{S}{r}\parti{r}{t} + 
+\parti{S}{\theta}\parti{\theta}{t} + \parti{S}{\phi}\parti{\phi}{t}\Bigg)$ of 
+each curve, we can generate a collection of tangents to $P$, which is called 
+the tangent space. Notice that the partial derivative $\parti{S}{x^i}$ at 
+the point is the change of the line along the coordinate $x^i$. Thus the tuple 
+of all $\parti{S}{x^i}$ $\Bigg($in our case $\L\{\parti{S}{r}, 
+\parti{S}{\theta}, \parti{S}{\phi}\R\} \Bigg)$ are along the direction 
+which spans the tangent space (see figure \ref{fig:basis}). This is true for all 
+curves $\in C^{\infty}$ (that is, smooth curves). Notice that the partial 
+derivative of the curve along the coordinate direction transforms covariantly 
+(as shown in (\ref{foot:phi})), and is independent of the curve $S$.
+
+A tangent vector $\ve{X}$ (a vector living in the tangent space) can thus be 
+written in operator form as $\ve{X}=a^i\parti{}{x^{i}}$. The dual space to 
+the tangent space is called the \emph{cotangent space}. The cotangent space is 
+made up of all linear functionals (a function from a vector space into its 
+underlying scalar field [that is it takes a vector in the vector space as an 
+input and returns a scalar value]) on the tangent space. The i'th coordinate 
+function of the tangent space is defined by $\d x^i(\ve{X}) = a_i$, and thus $\d 
+x^i$ makes up the dual (cotangent space) to the tangent space. It can be shown 
+that the cotangent basis vector in a point of a coordinate is perpendicular on 
+the surface spanned by holding the coordinate under consideration fixed to the 
+point of consideration while varying all the other coordinates. This is 
+depicted 
+in figure \ref{fig:basis}.
+%
+\begin{figure}[h!]
+\center
+ \includegraphics[width=0.5\textwidth]{figures/co-contra}
+ \caption{Basis vectors in a point.}
+ \label{fig:basis}
+\end{figure}
+
+\vspace{0.5cm}
+\begin{greenbox}{Mnemonic: How to change unit vectors}
+ Covariant unit vectors: Insert a function of a curve as a function of the new 
+ coordinates $(x')$ (which again can be expressed in the current coordinates 
+ $x$), for example the function $f((x')(x))$, and use the chain rule on the 
+ expression on $\parti{f((x')(x))}{x^i}$.\\
+ Contravariant unit vectors: Use the chain rule of the infinitesimal.
+\end{greenbox}
+
+
+
+\section{The Kronecker delta and metrics}
+The Kronecker delta $\delta^i_j = 1$ if $i=j$, and zero otherwise. The 
+independence of the coordinates can be expressed as
+%
+\begin{align*}
+ \delta^i_j = \parti{x^i}{x^j} = \parti{x^i[(x')^k\{x^l\}]}{x^j} = 
+ \parti{x^i}{(x')^k}\parti{(x')^k}{x^j},
+\end{align*}
+%
+where $x^i$ is a function of $(x')^k$, which again is a function of $x^l$, here 
+written as $x^i = x^i[(x')^k\{x^l\}]$
+
+A mnemonic of the function is to say that in order to remove a delta, all the 
+variables with the same index as the upper index must be transformed to the 
+lower index.
+
+Further, from section \ref{sec:bvdf} we have that
+%
+\begin{align*}
+ \d x^i \L(\parti{}{x^j}\R) = \ve{e}^i\cdot\ve{e}_j = \delta^i_j
+\end{align*}
+%
+The metric tensors are defined as
+%
+\begin{align*}
+ &g_{ij} = \ve{e}_i\cdot\ve{e}_j&
+ &g^{ij} = \ve{e}^i\cdot\ve{e}^j
+\end{align*}
+%
+and we notice that
+%
+\begin{align*}
+ &g^{ij} g_{jk} = \delta^i_j&
+ &e_i = g_{ij}e^j &
+ &e^i = g^{ij}e_j&
+\end{align*}
+
+
+
+
+\section{The $\nabla$ operator}
+The del operator is simply defined as
+%
+\begin{align*}
+ \nabla = \ve{e}_i \parti{}{x_i}
+\end{align*}
+%
+from this we get that products such as $(\nabla \ve{B}) \cdot \hv{b}$ can be 
+written as
+%
+\begin{align*}
+ (\nabla \ve{B}) \cdot \hv{b} = 
+ \ve{e}_i \parti{}{x_i} (B^j \ve{e}_j) \cdot \frac{B_k}{\|\ve{B}\|}\ve{e}^k
+\end{align*}
+%
+Note that there exists tensor identities just like vector identities, which is 
+coordinate independent and makes it easy to evaluate expressions such that the 
+one above. We have that
+%
+\begin{align*}
+ (\nabla \ve{B}) \cdot \hv{b} = \grad \|\ve{B}\|
+\end{align*}
+
+
+
+
+\section{A transformation example}
+Let's say that we would to go from a description in Cartesian coordinates 
+(given by the coordinates $\ve{R}$), to a description in curvilinear (given by 
+the coordinates $\ve{u}$). We have that the component in the curvilinear 
+coordinates can be written like $(v')^i = 
+(v')^i(\ve{R}(\ve{u}))$, where 
+$\ve{R}(\ve{u}) =
+ \begin{bmatrix}
+  x^1(u^1,u^2,u^3)& 
+  x^2(u^1,u^2,u^3)&
+  x^3(u^1,u^2,u^3)
+ \end{bmatrix}
+$
+and that the components written in the Cartesian coordinates can be written like
+$v^i = 
+v^i(\ve{u}(\ve{R}))$, where 
+$\ve{u}(\ve{R}) =
+ \begin{bmatrix}
+  u^1(x^1,x^2,x^3)& 
+  u^2(x^1,x^2,x^3)&
+  u^3(x^1,x^2,x^3)
+ \end{bmatrix}
+$. The transformation from curvilinear to Cartesian coordinates can be written 
+like
+%
+\begin{align*}
+ \ve{v} &=
+ (v')^i(\ve{e}')_i =
+ (v')^i\parti{}{R^i} = 
+ (v')^i \parti{u^j}{R^i}\parti{}{u^j} =
+ v^i \parti{u^j}{R^i}\parti{}{u^j} =
+ v^i \parti{u^j}{R^i}\ve{e}_j
+ \\
+ \ve{w} &=
+ (w')_i(\ve{e}')^i = 
+ (w')_i\text{d}R^i = 
+ (w')_i \parti{R^i}{u^j}\text{d}u^j =
+ w_i \parti{R^i}{u^j}\text{d}u^j =
+ w_i \parti{R^i}{u^j}\ve{e}^j
+\end{align*}
+%
+Notice that the notation can appear somewhat confusing. We have that a 
+vector $\ve{a}$ is represented contravariantly as $(a')^i(\ve{e}')_i$ in the 
+primed basis and as $(a')^i \parti{R^i}{u^j} \ve{e}_j$ in the unprimed 
+basis, which makes $(a')^i = a^i$. 
+
+Further note that some authors prefer the somewhat bad notation $\ve{e}_i = 
+\grad u^i$, which translates to: ``The Cartesian basis vector written 
+contravariantly in $u$-coordinates'' (the notation misses the last 
+$\parti{}{u^j}$ in order to be correct), and $\ve{e}^i = \parti{\ve{R}}{u^i}$ 
+translates to: ``The Cartesian basis vector written covariantly in 
+$u$-coordinates'' (the notation misses the last $\text{d}u^j$ in order to be 
+correct).
+
+%http://physics.stackexchange.com/questions/57754/what-is-a-dual-cotangent-space
+
+\nocite{diverno_1992}
+\nocite{arfken_2012}
+\nocite{DHaeseleer_1991}
+\nocite{wiki_co_cont}
+\nocite{wiki_co_trans}
+\nocite{diverno_url}
+\nocite{physics_forum}
+\nocite{wiki_cot_space}
+\nocite{mathworld_pseudo}
+
+\markboth{Bibliography}{}
+\bibliographystyle{../../../LaTeX/prsty}
+\bibliography{bib/localbib}
+\end{document}
