@@ -248,16 +248,18 @@ has the determinant $1/J$.
 
 \begin{example}{Vector field transformation by using the transformation matrix}
  \label{ex:vft}
- Let's assume we have a (contravariant) vector given in the basis $\{\hv{\rho}, 
- \hv{\phi}, \hv{z}\}$, and would like to express it in the Cartesian basis 
- $\{\hv{x}, \hv{y}, \hv{z}\}$. The transformation equations (the coordinates 
+ Let's assume we have a (contravariant) vector given in the basis 
+$\{\hv{e}_\rho, 
+ \hv{e}_\phi, \hv{e}_z\}$, and would like to express it in the Cartesian basis 
+ $\{\hv{e}_x, \hv{e}_y, \hv{e}_z\}$. The transformation equations (the 
+coordinates 
  written as a function of the other coordinates) read
  %
  \begin{align*}
-  &x = r \cos\phi&
-  &r = \sqrt{x^2+y^2}&
+  &x = \rho \cos\phi&
+  &\rho = \sqrt{x^2+y^2}&
   \\
-  &y = r \sin\phi&
+  &y = \rho \sin\phi&
   &\phi = \atan\L(\frac{y}{x}\R)&
   \\
   &z=z&
@@ -268,13 +270,15 @@ has the determinant $1/J$.
  %
  \begin{align}
   \ve{A} =
-  A_x \hv{x} + A_y \hv{y} + A_z \hv{z} =
-  A_\rho \hv{\rho} + A_\phi \hv{\phi} + A_z  \hv{z}
+  A_x \hv{e}_x + A_y \hv{e}_y + A_z \hv{e}_z =
+  A_\rho \hv{e}_\rho + A_\phi \hv{e}_\phi + A_z  \hv{e}_z
   \label{eq:component}
  \end{align}
  %
- So if we know how the $\hv{x}$, $\hv{y}$ and $\hv{z}$ can be written in terms 
- of $\hv{\rho}$, $\hv{\phi}$ and $\hv{z}$, we can simply write the components 
+ So if we know how the $\hv{e}_x$, $\hv{e}_y$ and $\hv{e}_z$ can be written in 
+terms 
+ of $\hv{e}_\rho$, $\hv{e}_\phi$ and $\hv{e}_z$, we can simply write the 
+components 
  in the new coordinate system to complete the transformation. We will here use 
  the notation $_{\{\hv{x}_1, \hv{x}_2, \hv{x}_3\}} \ve{A}$, meaning the vector 
  $\ve{A}$ described in the basis ${\{\hv{x}_1, \hv{x}_2, \hv{x}_3\}}$.
@@ -282,18 +286,18 @@ has the determinant $1/J$.
  Let us try to use (\ref{eq:contravariant_matrix}). We get
  %
  \begin{align*}
-  _{\{\hv{x}, \hv{y}, \hv{z}\}} \ve{A}
+  _{\{\hv{e}_x, \hv{e}_y, \hv{e}_z\}} \ve{A}
    =
    \L[\parti{(x, y, z)}{(\rho, \phi, z)}\R] \;
-    _{\{\ve{\rho}, \ve{\phi},\ve{z}\}}\ve{A}
+    _{\{\ve{e}_\rho, \ve{e}_\phi,\ve{e}_z\}}\ve{A}
    = \begin{bmatrix} \cos\phi & -\rho\sin\phi & 0 \\
                      \sin\phi &  \rho\cos\phi & 0 \\
                      0 & 0 & 1
   \end{bmatrix} \;
-  _{\{\ve{\rho}, \ve{\phi},\ve{z}\}}\ve{A}
+  _{\{\ve{e}_\rho, \ve{e}_\phi,\ve{e}_z\}}\ve{A}
  \end{align*}
  %
- If we try to transform $\ve{\phi}$, we get
+ If we try to transform $\ve{e}_\phi$, we get
  %
  \begin{align*} 
    \begin{bmatrix} \cos\phi & -\rho\sin\phi & 0 \\
@@ -314,7 +318,7 @@ has the determinant $1/J$.
  Meaning that 
  %
  \begin{align*}
-  \ve{\phi} = -\rho\sin\phi \hv{x} + \rho\cos\phi \hv{y}
+  \ve{e}_\phi = -\rho\sin\phi \hv{e}_x + \rho\cos\phi \hv{e}_y
  \end{align*}
  %
  We see that this vector has length $\rho$, but we wanted to transform from 
@@ -342,17 +346,17 @@ With
  this notation, we finally get that
  %
  \begin{align*}
-  _{\{\hv{x}, \hv{y}, \hv{z}\}} \ve{A}
+  _{\{\hv{e}_x, \hv{e}_y, \hv{e}_z\}} \ve{A}
    =
      \L[
       \frac{\displaystyle \parti{(x, y, z)}{(\rho, \phi, z)}}{
             \displaystyle \L\|\parti{(x,y, z)}{(\rho, \phi, z)}\R\| } \R] \;
-    _{\{\hv{\rho}, \hv{\phi},\hv{z}\}}\ve{A}
+    _{\{\hv{e}_\rho, \hv{e}_\phi,\hv{e}_z\}}\ve{A}
    = \begin{bmatrix} \cos\phi & -\sin\phi & 0 \\
                      \sin\phi &  \cos\phi & 0 \\
                      0 & 0 & 1
   \end{bmatrix} \;
-  _{\{\hv{\rho}, \hv{\phi},\hv{z}\}}\ve{A}
+  _{\{\hv{e}_\rho, \hv{e}_\phi,\hv{e}_z\}}\ve{A}
  \end{align*}
 \end{example}
 
@@ -533,13 +537,15 @@ And a second rank tensor can be written in four different ways
  A_{i}^{\;\;j}\ve{e}_i\ve{e}^j
 \end{align*}
 %
-Where the covariant basis (transforms covariantly) can be written as
+Where the covariant basis (transforms covariantly) can be written in operator 
+form (see section \ref{sec:bvdf}) as
 %
 \begin{align}
  \ve{e}_i = \parti{}{x^i} \label{eq:cov_basis}
 \end{align}
 %
-and the contravariant basis (transforms contravariantly) can be written as
+and the contravariant basis (transforms contravariantly) can be written in 
+operator form (see section \ref{sec:bvdf}) as
 %
 \begin{align}
  \ve{e}^i = \text{d}x^i \label{eq:con_basis}
@@ -556,6 +562,39 @@ that the index in $\text{d}x^i$ is located above the index in $\parti{}{x^i}$,
 and therefore we can use that the ``n'' in ``contravariant'' is ``pointing up'' 
 as described above.
 \end{greenbox}
+
+
+\subsection{Finding the basis vectors of a new coordinate system}
+This can be done as shown in example \ref{ex:vft}. Each column in the Jacobian 
+matrix is a basis vector for the new coordinate system written with respect to 
+the old coordinate system. Notice that this basis vector does not necessarily 
+have unit length.
+
+
+\subsection{The derivative of a basis vector}
+Since the manifold can locally be written in Cartesian coordinates 
+(by definition), it is usually a good idea to write the basis vector back to 
+Cartesian coordinates, take the derivative, and transform back to the new 
+coordinate system. Let us elucidate this with an example:
+
+\begin{example}{The derivative of a basis vector}
+ Using the coordinate transform given in example \ref{ex:vft}, we would like to 
+ calculate $\partial_\phi \ve{e}_\rho$. We have that
+ %
+ \begin{align*}
+  \partial_\phi \ve{e}_\rho &= \partial_\phi 
+\L(\cos\phi\hv{e}_x+\sin\phi\hv{e}_y\R)\\
+  %
+    &= \L(\hv{e}_x\partial_\phi \cos\phi + \cos\phi \partial_\phi \hv{e}_x\R)
+      +\L(\hv{e}_y\partial_\phi \sin\phi + \sin\phi \partial_\phi \hv{e}_y\R)\\
+  %
+    &= - \sin\phi\hv{e}_x + \cos\phi\hv{e}_y\\
+    &= \hv{e}_\phi
+ \end{align*}
+ %
+ Where we have used that the Cartesian
+\end{example}
+%
 
 
 \subsection{Basis vectors in differential form}\label{sec:bvdf}
