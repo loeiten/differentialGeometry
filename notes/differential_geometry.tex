@@ -34,7 +34,7 @@
 \maketitle
 
 This note aims to introduce the basics of differential geometry, so that it can
-easily be used in the daily work of engineers and phycisists. As differential
+easily be used in the daily work of engineers and physicists. As differential
 geometry can be a bit hard to grasp at first, the reader is also referred to
 NASA's introductory text:
 \href{\NASAintro
@@ -264,7 +264,7 @@ contravariant)}
  x'}$ as a matrix, is to remember that the $i$ denotes the rows number and
  $j$ denotes column number in $A_{i,j}$.
 
- Note that applies only for the contravariant transfomation (see section
+ Note that applies only for the contravariant transformation (see section
 \ref{sec:co-cont}, or example \hyperref[ex:fmt]{4} ). In general one must look
 at the summed index in order to decide how to write the matrix in a matrix
 product.
@@ -668,7 +668,7 @@ $
 \end{align*}
 %
 where $g_{ij}=\ve{e}_i\cdot\ve{e}_j$, $g^{ij}=\ve{e}^i\cdot\ve{e}^j$ and the
-last relation can be shown in a straigth forward way.
+last relation can be shown in a straight forward way.
 
 
 
@@ -788,7 +788,7 @@ The metric tensors are defined as
 and we notice that
 %
 \begin{align*}
- &g^{ij} g_{jk} = \delta^i_j&
+ &g_{ij} g^{jk} = \delta_k^i = g^{kj} g_{ji}&
  &\ve{e}_i = g_{ij}\ve{e}^j &
  &\ve{e}^i = g^{ij}\ve{e}_j&
 \end{align*}
@@ -810,17 +810,17 @@ and we notice that
  %
  Next, to find the covariant basis vectors, we need to find the covariant
  transformation matrix $A_{\text{unprimed}\to \text{primed}, \text{covariant}}
- = \parti{x^j}{(x')^i}$. We now need to keep our head straigth to find out how
+ = \parti{x^j}{(x')^i}$. We now need to keep our head straight to find out how
  to represent this matrix. Shall we let $i$ denote the columns and $j$ the
- rows as we did for the contravariant matrix, or vica versa? To decide this, we
- should look at the transfomation rule. We have for covariant vectors that
+ rows as we did for the contravariant matrix, or vice versa? To decide this, we
+ should look at the transformation rule. We have for covariant vectors that
  $(A')_i = \parti{x^j}{(x')^i} A_j$. Hence, there is a sum over the $j$'th
  element. If we want to form this as a matrix product, we should let let $j$
  denote the columns and $i$ denote the rows in $\parti{x^j}{(x')^i}$ if we want
  to write $\parti{x^j}{(x')^i} A_j$ as a matrix product.
 
  There are now two ways to find $A_{\text{unprimed}\to \text{primed},
- \text{covariant}}$. The first way is to calculate the derivates, and the
+ \text{covariant}}$. The first way is to calculate the derivatives, and the
  second involves finding the inverse of the contravariant $A_{\text{unprimed}\to
  \text{primed}}$. The first way is as follows
  Finally, we have the often used relations
@@ -900,7 +900,10 @@ and we notice that
   \end{bmatrix}
  \end{align*}
  %
- Generally, we have that $g_{ij} = (g^{ij})^{-1}$
+ Note that $g_{ij} = (g^{ij})^{-1}$ only because our coordinate system is 
+ orthogonal, and that in general $g_{ij}g^{jk}=\delta_i^k$ due to orthogonality 
+ of covariant and contravariant metrics (the matrix product of the metric 
+ tensors written as matrices gives the identity matrix).
 \end{example}
 %
 
