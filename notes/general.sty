@@ -69,16 +69,7 @@ marginparwidth=2cm, marginparsep=0.5cm]{geometry}
 %Makes endnotes
 \usepackage{endnotes}
 %Symbols (used in doi reference) [misc] for PaperPortrait 
-\usepackage[misc]{ifsym}        
-\usepackage[pdffitwindow=false,%
-            pdfstartview={FitH},%
-            %Can set windows and colors on or off (hide links)
-            colorlinks=false,%hidelinks,
-            %Bookmarks open in hte menu
-            bookmarksopen=false,%
-            %Hyperref gives clickable links 
-            %in the document
-            bookmarksnumbered=true]{hyperref}   
+\usepackage[misc]{ifsym}
             
 %Make landscape pages
 \usepackage{pdflscape}          
@@ -106,6 +97,16 @@ marginparwidth=2cm, marginparsep=0.5cm]{geometry}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 %Tables to span over pages
 \usepackage{longtable}
+%Gives hyperref, must be added as the last package
+\usepackage[pdffitwindow=false,%
+            pdfstartview={FitH},%
+            %Can set windows and colors on or off (hide links)
+            colorlinks=false,%hidelinks,
+            %Bookmarks open in hte menu
+            bookmarksopen=false,%
+            %Hyperref gives clickable links 
+            %in the document
+            bookmarksnumbered=true]{hyperref}   
 %===============================================================================
 
 

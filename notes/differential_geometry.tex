@@ -1,6 +1,6 @@
 \documentclass[a4paper, 12pt]{article}
-\usepackage{general}
 \usepackage{dsfont}
+\usepackage{general}
 \title{\vspace{-8ex}A short note about differential geometry\vspace{-1ex}}
 \author{Michael L{\o}iten}
 \date{\vspace{-2ex}\today}
@@ -138,11 +138,12 @@ curvilinear coordinate system is simply a coordinate patch on the differentiable
 manifold $\mathbb{E}^n$ ($n$-dimensional Euclidean space) that is diffeomorphic
 %
 \footnote{Diffeomorphism is an isomorphism\footnotemark of smooth manifolds.}%
-\footnotetext{An isomorphism is a homomorphism\footnotemark(or more generally a
-              morphism\footnotemark) that admits an inverse.}%
-\footnotetext[3]{A homomorphism is a structure-preserving map between two
-                 algebraic structures (such as groups, rings, or vector
-                 spaces).}%
+\footnotetext{An isomorphism is a homomorphism\footnotemark that admits an 
+	      inverse.}%
+\footnotetext{A homomorphism (or more generally a morphism\footnotemark)
+              is a structure-preserving map between two
+              algebraic structures (such as groups, rings, or vector
+              spaces).}%
 \footnotetext{Morphism refers to a structure-preserving map from one
               mathematical structure to another(generalizes the idea of
 	      a function).}%
@@ -265,18 +266,21 @@ contravariant)}
  $j$ denotes column number in $A_{i,j}$.
 
  Note that applies only for the contravariant transformation (see section
-\ref{sec:co-cont}, or example \hyperref[ex:fmt]{4} ). In general one must look
+\ref{sec:co-cont}, or example \hyperref[ex:fmt]{5} ). In general one must look
 at the summed index in order to decide how to write the matrix in a matrix
 product.
 \end{greenbox}
 
 \begin{example}{Vector field transformation by using the transformation matrix}
  \label{ex:vft}
+ Note: A similar example where the basis vectors are transformed instead of 
+ using the transformation matrix is found in example \hyperref[ex:tbs]{4}.
+ 
  Let's assume we have a (contravariant) vector given in the basis
-$\{\hv{e}_\rho,
+ $\{\hv{e}_\rho,
  \hv{e}_\phi, \hv{e}_z\}$, and would like to express it in the Cartesian basis
  $\{\hv{e}_x, \hv{e}_y, \hv{e}_z\}$. The transformation equations (the
-coordinates
+ coordinates
  written as a function of the other coordinates) read
  %
  \begin{align*}
@@ -290,12 +294,17 @@ coordinates
   &z=z&
  \end{align*}
  %
- Note that
+ Note that%
+ %
+ \footnote{The notation is deliberately choosen different than in example 
+           \hyperref[ex:tbs]{4}. Do not confuse $A_{\hat{\rho}}$ with 
+	   $a_\rho$, $A_{\hat{\phi}}$ with $a_\phi$ or $A_{\hat{z}}$ with 
+           $a_z$.}
  %
  \begin{align}
   \ve{A} =
   A_x \hv{e}_x + A_y \hv{e}_y + A_z \hv{e}_z =
-  A_\rho \hv{e}_\rho + A_\phi \hv{e}_\phi + A_z  \hv{e}_z
+  A_{\hat{\rho}} \hv{e}_\rho + A_{\hat{\phi}} \hv{e}_\phi + A_{\hat{z}} \hv{e}_z
   \label{eq:component}
  \end{align}
  %
@@ -736,7 +745,7 @@ in figure \ref{fig:basis}.
  Contravariant unit vectors: Use the chain rule of the infinitesimal.
 \end{greenbox}
 %
-Finally, note that some authors prefer the somewhat bad notation $\ve{e}^i =
+Finally, note that some authors prefer the notation $\ve{e}^i =
 \grad u^i$ and $\ve{e}_i = \parti{\ve{R}}{u^i}$, where $\ve{R}(\ve{u})$ is a
 curve\hyperref[note:curve]{$^9$}.The notation differs from what introduced
 above by explicitly specifying the curve under consideration.
@@ -750,7 +759,183 @@ on the tangent $\parti{}{R^k}$, we get $\d u^i\L(\parti{}{R^k}\R) =
 \parti{u^i}{R^j} \d R^j\L(\parti{}{R^k}\R) = \parti{u^i}{R^j} \delta^j_k =
 \parti{u^i}{R^k}$ and define $\parti{u^i}{R^j}$ as $\nabla u^i$, we end up with
 the same.
-
+%
+\begin{example}{Vector field transformation by transforming the basis vectors}
+ \label{ex:tbs}
+ Again, we would like to transform a vector field from Cartesian coordinates to 
+ cylindrical coordinates. The coordinates written as a function of the other 
+ coordinates are
+ %
+ \begin{align*}
+  &x = \rho \cos\phi&
+  &\rho = \sqrt{x^2+y^2}&
+  \\
+  &y = \rho \sin\phi&
+  &\phi = \atan\L(\frac{y}{x}\R)&
+  \\
+  &z=z&
+  &z=z&
+ \end{align*}
+ %
+ Again, any vector can be written in the following way
+ %
+ \begin{align*}
+     \ve{A}=A^i\ve{e}_i=A_i\ve{e}^i
+ \end{align*}
+ %
+ If we start by transforming the contravariant vector (a vector which transform 
+ contravariantly, which in our case means that the components are written 
+ contravariantly and the basis vectors are  written covariantly), we find 
+ that
+ %
+ \begin{align*}
+     \ve{A}
+     =& A^i\ve{e}_i\\
+     =& A^i\partial_i\\
+     =& A^x\partial_x + A^y\partial_y + A^z\partial_z
+ \end{align*}
+ %
+ By using the chain rule, we see that the parital derivative of a curve $f = 
+ f(\rho(x,y,z), \phi(x,y,z), z(x,y,z))$
+ %
+ \begin{align*}
+     \parti{f}{x} = \parti{f}{\rho}\parti{\rho}{x} + 
+		    \parti{f}{\phi}\parti{\phi}{x} + 
+		    \parti{f}{z}\parti{z}{x} 
+ \end{align*}
+ %
+ if we do the same for the partial derivative of $y$ and $z$ (and remember 
+ that $f$ can be any curve passing through the point of consideration), we find 
+ that
+ %
+ \begin{align*}
+     \ve{A}
+     =& \quad\, A^x\L(
+	    \parti{\rho}{x}\parti{}{\rho} + 		    
+	    \parti{\phi}{x}\parti{}{\phi} + 
+	    \parti{z}{x}\parti{}{z}
+	   \R)\\
+      &+
+        A^y\L(
+	    \parti{\rho}{y}\parti{}{\rho} + 		    
+	    \parti{\phi}{y}\parti{}{\phi} + 
+	    \parti{z}{y}\parti{}{z}
+	   \R)\\
+      &+
+        A^z\L(
+	    \parti{\rho}{z}\parti{}{\rho} + 		    
+	    \parti{\phi}{z}\parti{}{\phi} + 
+	    \parti{z}{z}\parti{}{z}
+	   \R)\\
+      %
+      %
+     =& \quad\, A^x\L(
+	    \parti{\rho}{x}\ve{e}_{\rho} + 		    
+	    \parti{\phi}{x}\ve{e}_{\phi} + 
+	    \parti{z}{x}\ve{e}_{z}
+	   \R)\\
+      &+
+        A^y\L(
+	    \parti{\rho}{y}\ve{e}_{\rho} + 		    
+	    \parti{\phi}{y}\ve{e}_{\phi} + 
+	    \parti{z}{y}\ve{e}_{z}
+	   \R)\\
+      &+
+        A^z\L(
+	    \parti{\rho}{z}\ve{e}_{\rho} + 		    
+	    \parti{\phi}{z}\ve{e}_{\phi} + 
+	    \parti{z}{z}\ve{e}_{z}
+	   \R)\\
+      %
+      %
+     =& \quad\, \L(
+	    A^x\parti{\rho}{x} + 		    
+	    A^y\parti{\rho}{y} + 
+	    A^z\parti{\rho}{z}
+	         \R)\ve{e}_{\rho}\\
+      &+
+        \L(
+	    A^x\parti{\phi}{x} + 		    
+	    A^y\parti{\phi}{y} + 
+	    A^z\parti{\phi}{z}
+	\R)\ve{e}_{\phi}\\
+      &+
+        \L(
+	    A^x\parti{z}{x} + 		    
+	    A^y\parti{z}{y} + 
+	    A^z\parti{z}{z}
+	\R)\ve{e}_{z}\\
+      %
+      %
+     =& \quad\, \L(
+	    A^x\frac{x}{\sqrt{x^2+y^2}} + 		    
+	    A^y\frac{y}{\sqrt{x^2+y^2}} + 
+	    A^z\cdot0
+	         \R)\ve{e}_{\rho}\\
+      &+
+        \L(
+	    A^x\L[-\frac{y}{x^2+y^2}\R] + 		    
+	    A^y\frac{x}{x^2+y^2} + 
+	    A^z\cdot0
+	\R)\ve{e}_{\phi}\\
+      &+
+        \L(
+	    A^x\cdot0 + 		    
+	    A^y\cdot0 + 
+	    A^z\cdot1
+	\R)\ve{e}_{z}\\
+      %
+      %
+     =& \L(
+	    A^x\cos\phi + 		    
+	    A^y\sin\phi
+	\R)\ve{e}_{\rho}
+      +
+        \L(
+	    -A^x\frac{\sin\phi}{\rho} + 		    
+	    A^y\frac{\cos\phi}{\rho}
+	\R)\ve{e}_{\phi}
+      +
+        \L(A^z\R)\ve{e}_{z}\\
+      %
+      %
+     =& A^{\rho}\ve{e}_{\rho} + A^{\phi}\ve{e}_{\phi} + A^z\ve{e}_{z}\\
+ \end{align*}
+ %
+ Note that the transformed unit vectors does not have unit length.
+ 
+ Let us now transform the covariant vector (a vector which transform 
+ covariantly, which in our case means that the components are written 
+ covariantly and the basis vectors are  written  contravariantly), we find that
+ %
+ \begin{align*}
+     \ve{A}
+     =& A_i\ve{e}^i\\
+     =& A_i\grad u^i\\
+     =& A_x\grad x + A_y\grad y + A_z\grad z\\
+     =& A_x\grad (\rho \cos\phi) + A_y\grad (\rho \sin\phi) + A_z\grad (z)\\
+     =& A_x (-\rho \sin\phi \grad \phi + \cos\phi \grad \rho)
+      + A_y ( \rho \cos\phi \grad \phi + \sin\phi \grad \rho)
+      + A_z (\grad z)\\
+     =&  ( A_x\cos\phi + A_y\sin\phi \grad \rho)\grad \rho
+      +  (-A_x\rho \sin\phi + A_y\rho \cos\phi )\grad \phi
+      +  (A_z)\grad z\\
+     =&  ( A_x\cos\phi + A_y\sin\phi \grad \rho)\ve{e}^\rho
+      +  (-A_x\rho \sin\phi + A_y\rho \cos\phi )\ve{e}^\phi
+      +  (A_z)\ve{e}^z\\
+     =&  A_\rho\ve{e}^\rho
+      +  A_\phi\ve{e}^\phi
+      +  A_z\ve{e}^z
+ \end{align*}
+ %
+ where $\grad$ is del operator consisting of $\partial_x$, $\partial_y$ and 
+ $\partial_z$.
+ 
+ It is now important to differentiate between the components $A_\rho$, 
+$A_\phi$,  $A_z$ and $A_{\hat{\rho}}$, $A_{\hat{\phi}}$, $A_{\hat{z}}$ seen in 
+example  \hyperref[ex:vft]{2},  which differs by  the  scale factors.
+\end{example}
+%
 
 
 
@@ -815,7 +1000,7 @@ and we notice that
  rows as we did for the contravariant matrix, or vice versa? To decide this, we
  should look at the transformation rule. We have for covariant vectors that
  $(A')_i = \parti{x^j}{(x')^i} A_j$. Hence, there is a sum over the $j$'th
- element. If we want to form this as a matrix product, we should let let $j$
+ component. If we want to form this as a matrix product, we should let let $j$
  denote the columns and $i$ denote the rows in $\parti{x^j}{(x')^i}$ if we want
  to write $\parti{x^j}{(x')^i} A_j$ as a matrix product.
 
@@ -909,7 +1094,7 @@ and we notice that
 
 
 
-\section{The $\nabla$ operator}
+\section{The \texorpdfstring{$\nabla$}{del} operator}
 The del operator is simply defined as
 %
 \begin{align*}
