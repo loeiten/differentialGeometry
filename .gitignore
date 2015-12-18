@@ -3,7 +3,7 @@
 *.svn/
 *.swp
 *.bak
-*Poul*
+*.pdf
 *.aux
 *.bbl
 *.blg
@@ -11,4 +11,4 @@
 *.out
 *.backup
 *.dvi
-differential_geometry.pdf
+__pycache__/
