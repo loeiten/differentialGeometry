@@ -38,8 +38,8 @@ easily be used in the daily work of engineers and physicists. As differential
 geometry can be a bit hard to grasp at first, the reader is also referred to
 NASA's introductory text:
 \href{\NASAintro
-}{An Introduction to Tensors for Students of Physics and Engineering}, but note 
-that $\ve{v}=(\ve{v}\cdot\ve{e}_i)\ve{e}^i = v_i\ve{e}^i$ in this note, whereas 
+}{An Introduction to Tensors for Students of Physics and Engineering}, but note
+that $\ve{v}=(\ve{v}\cdot\ve{e}_i)\ve{e}^i = v_i\ve{e}^i$ in this note, whereas
 the authors of NASAs notes uses the notation $\ve{v}=v^i\ve{e}^i$.
 
 
@@ -89,8 +89,8 @@ and the spherical coordinate system. In general, a \emph{coordinate
 (hyper)surface} is the (hyper)surface one get if one holds one of the
 coordinates constant, and let all the other variables vary. %
 \footnote{In the example of a sphere: $\theta$ and $\phi$ can take all
-	  possible values in the domain, even though not all combinations of
-	  $x$, $y$ and $z$ are allowed due to the constraint.}%
+          possible values in the domain, even though not all combinations of
+          $x$, $y$ and $z$ are allowed due to the constraint.}%
 %
 A \emph{coordinate curve} is the collection of point one gets by intersection of
 two coordinate (hyper)surfaces.
@@ -113,7 +113,7 @@ manifold, we must have $n-m$ constraints.
 \center
  \includegraphics[width=0.5\textwidth]{figures/Spherical_coordinate_elements}
  \caption{Coordinate curves and coordinate surfaces of the spherical
-	  coordinate system.}
+          coordinate system.}
  \label{fig:sphere}
 \end{figure}
 
@@ -138,15 +138,15 @@ curvilinear coordinate system is simply a coordinate patch on the differentiable
 manifold $\mathbb{E}^n$ ($n$-dimensional Euclidean space) that is diffeomorphic
 %
 \footnote{Diffeomorphism is an isomorphism\footnotemark of smooth manifolds.}%
-\footnotetext{An isomorphism is a homomorphism\footnotemark that admits an 
-	      inverse.}%
+\footnotetext{An isomorphism is a homomorphism\footnotemark that admits an
+              inverse.}%
 \footnotetext{A homomorphism (or more generally a morphism\footnotemark)
               is a structure-preserving map between two
               algebraic structures (such as groups, rings, or vector
               spaces).}%
 \footnotetext{Morphism refers to a structure-preserving map from one
               mathematical structure to another(generalizes the idea of
-	      a function).}%
+              a function).}%
 %
 to the Cartesian coordinate patch on the manifold.
 
@@ -273,9 +273,9 @@ product.
 
 \begin{example}{Vector field transformation by using the transformation matrix}
  \label{ex:vft}
- Note: A similar example where the basis vectors are transformed instead of 
+ Note: A similar example where the basis vectors are transformed instead of
  using the transformation matrix is found in example \hyperref[ex:tbs]{4}.
- 
+
  Let's assume we have a (contravariant) vector given in the basis
  $\{\hv{e}_\rho,
  \hv{e}_\phi, \hv{e}_z\}$, and would like to express it in the Cartesian basis
@@ -296,9 +296,9 @@ product.
  %
  Note that%
  %
- \footnote{The notation is deliberately choosen different than in example 
-           \hyperref[ex:tbs]{4}. Do not confuse $A_{\hat{\rho}}$ with 
-	   $a_\rho$, $A_{\hat{\phi}}$ with $a_\phi$ or $A_{\hat{z}}$ with 
+ \footnote{The notation is deliberately choosen different than in example
+           \hyperref[ex:tbs]{4}. Do not confuse $A_{\hat{\rho}}$ with
+           $a_\rho$, $A_{\hat{\phi}}$ with $a_\phi$ or $A_{\hat{z}}$ with
            $a_z$.}
  %
  \begin{align}
@@ -338,13 +338,13 @@ components
                      0 & 0 & 1
   \end{bmatrix}
   \begin{bmatrix} 0 \\
- 		 1 \\
- 		 0 \\
+                 1 \\
+                 0 \\
   \end{bmatrix}
   =
   \begin{bmatrix} -\rho\sin\phi \\
- 		 \rho\cos\phi \\
- 		 0 \\
+                 \rho\cos\phi \\
+                 0 \\
   \end{bmatrix}
  \end{align*}
  %
@@ -762,8 +762,8 @@ the same.
 %
 \begin{example}{Vector field transformation by transforming the basis vectors}
  \label{ex:tbs}
- Again, we would like to transform a vector field from Cartesian coordinates to 
- cylindrical coordinates. The coordinates written as a function of the other 
+ Again, we would like to transform a vector field from Cartesian coordinates to
+ cylindrical coordinates. The coordinates written as a function of the other
  coordinates are
  %
  \begin{align*}
@@ -783,9 +783,9 @@ the same.
      \ve{A}=A^i\ve{e}_i=A_i\ve{e}^i
  \end{align*}
  %
- If we start by transforming the contravariant vector (a vector which transform 
- contravariantly, which in our case means that the components are written 
- contravariantly and the basis vectors are  written covariantly), we find 
+ If we start by transforming the contravariant vector (a vector which transform
+ contravariantly, which in our case means that the components are written
+ contravariantly and the basis vectors are  written covariantly), we find
  that
  %
  \begin{align*}
@@ -795,106 +795,106 @@ the same.
      =& A^x\partial_x + A^y\partial_y + A^z\partial_z
  \end{align*}
  %
- By using the chain rule, we see that the parital derivative of a curve $f = 
+ By using the chain rule, we see that the parital derivative of a curve $f =
  f(\rho(x,y,z), \phi(x,y,z), z(x,y,z))$
  %
  \begin{align*}
-     \parti{f}{x} = \parti{f}{\rho}\parti{\rho}{x} + 
-		    \parti{f}{\phi}\parti{\phi}{x} + 
-		    \parti{f}{z}\parti{z}{x} 
+     \parti{f}{x} = \parti{f}{\rho}\parti{\rho}{x} +
+                    \parti{f}{\phi}\parti{\phi}{x} +
+                    \parti{f}{z}\parti{z}{x}
  \end{align*}
  %
- if we do the same for the partial derivative of $y$ and $z$ (and remember 
- that $f$ can be any curve passing through the point of consideration), we find 
+ if we do the same for the partial derivative of $y$ and $z$ (and remember
+ that $f$ can be any curve passing through the point of consideration), we find
  that
  %
  \begin{align*}
      \ve{A}
      =& \quad\, A^x\L(
-	    \parti{\rho}{x}\parti{}{\rho} + 		    
-	    \parti{\phi}{x}\parti{}{\phi} + 
-	    \parti{z}{x}\parti{}{z}
-	   \R)\\
+            \parti{\rho}{x}\parti{}{\rho} +
+            \parti{\phi}{x}\parti{}{\phi} +
+            \parti{z}{x}\parti{}{z}
+           \R)\\
       &+
         A^y\L(
-	    \parti{\rho}{y}\parti{}{\rho} + 		    
-	    \parti{\phi}{y}\parti{}{\phi} + 
-	    \parti{z}{y}\parti{}{z}
-	   \R)\\
+            \parti{\rho}{y}\parti{}{\rho} +
+            \parti{\phi}{y}\parti{}{\phi} +
+            \parti{z}{y}\parti{}{z}
+           \R)\\
       &+
         A^z\L(
-	    \parti{\rho}{z}\parti{}{\rho} + 		    
-	    \parti{\phi}{z}\parti{}{\phi} + 
-	    \parti{z}{z}\parti{}{z}
-	   \R)\\
+            \parti{\rho}{z}\parti{}{\rho} +
+            \parti{\phi}{z}\parti{}{\phi} +
+            \parti{z}{z}\parti{}{z}
+           \R)\\
       %
       %
      =& \quad\, A^x\L(
-	    \parti{\rho}{x}\ve{e}_{\rho} + 		    
-	    \parti{\phi}{x}\ve{e}_{\phi} + 
-	    \parti{z}{x}\ve{e}_{z}
-	   \R)\\
+            \parti{\rho}{x}\ve{e}_{\rho} +
+            \parti{\phi}{x}\ve{e}_{\phi} +
+            \parti{z}{x}\ve{e}_{z}
+           \R)\\
       &+
         A^y\L(
-	    \parti{\rho}{y}\ve{e}_{\rho} + 		    
-	    \parti{\phi}{y}\ve{e}_{\phi} + 
-	    \parti{z}{y}\ve{e}_{z}
-	   \R)\\
+            \parti{\rho}{y}\ve{e}_{\rho} +
+            \parti{\phi}{y}\ve{e}_{\phi} +
+            \parti{z}{y}\ve{e}_{z}
+           \R)\\
       &+
         A^z\L(
-	    \parti{\rho}{z}\ve{e}_{\rho} + 		    
-	    \parti{\phi}{z}\ve{e}_{\phi} + 
-	    \parti{z}{z}\ve{e}_{z}
-	   \R)\\
+            \parti{\rho}{z}\ve{e}_{\rho} +
+            \parti{\phi}{z}\ve{e}_{\phi} +
+            \parti{z}{z}\ve{e}_{z}
+           \R)\\
       %
       %
      =& \quad\, \L(
-	    A^x\parti{\rho}{x} + 		    
-	    A^y\parti{\rho}{y} + 
-	    A^z\parti{\rho}{z}
-	         \R)\ve{e}_{\rho}\\
+            A^x\parti{\rho}{x} +
+            A^y\parti{\rho}{y} +
+            A^z\parti{\rho}{z}
+                 \R)\ve{e}_{\rho}\\
       &+
         \L(
-	    A^x\parti{\phi}{x} + 		    
-	    A^y\parti{\phi}{y} + 
-	    A^z\parti{\phi}{z}
-	\R)\ve{e}_{\phi}\\
+            A^x\parti{\phi}{x} +
+            A^y\parti{\phi}{y} +
+            A^z\parti{\phi}{z}
+        \R)\ve{e}_{\phi}\\
       &+
         \L(
-	    A^x\parti{z}{x} + 		    
-	    A^y\parti{z}{y} + 
-	    A^z\parti{z}{z}
-	\R)\ve{e}_{z}\\
+            A^x\parti{z}{x} +
+            A^y\parti{z}{y} +
+            A^z\parti{z}{z}
+        \R)\ve{e}_{z}\\
       %
       %
      =& \quad\, \L(
-	    A^x\frac{x}{\sqrt{x^2+y^2}} + 		    
-	    A^y\frac{y}{\sqrt{x^2+y^2}} + 
-	    A^z\cdot0
-	         \R)\ve{e}_{\rho}\\
+            A^x\frac{x}{\sqrt{x^2+y^2}} +
+            A^y\frac{y}{\sqrt{x^2+y^2}} +
+            A^z\cdot0
+                 \R)\ve{e}_{\rho}\\
       &+
         \L(
-	    A^x\L[-\frac{y}{x^2+y^2}\R] + 		    
-	    A^y\frac{x}{x^2+y^2} + 
-	    A^z\cdot0
-	\R)\ve{e}_{\phi}\\
+            A^x\L[-\frac{y}{x^2+y^2}\R] +
+            A^y\frac{x}{x^2+y^2} +
+            A^z\cdot0
+        \R)\ve{e}_{\phi}\\
       &+
         \L(
-	    A^x\cdot0 + 		    
-	    A^y\cdot0 + 
-	    A^z\cdot1
-	\R)\ve{e}_{z}\\
+            A^x\cdot0 +
+            A^y\cdot0 +
+            A^z\cdot1
+        \R)\ve{e}_{z}\\
       %
       %
      =& \L(
-	    A^x\cos\phi + 		    
-	    A^y\sin\phi
-	\R)\ve{e}_{\rho}
+            A^x\cos\phi +
+            A^y\sin\phi
+        \R)\ve{e}_{\rho}
       +
         \L(
-	    -A^x\frac{\sin\phi}{\rho} + 		    
-	    A^y\frac{\cos\phi}{\rho}
-	\R)\ve{e}_{\phi}
+            -A^x\frac{\sin\phi}{\rho} +
+            A^y\frac{\cos\phi}{\rho}
+        \R)\ve{e}_{\phi}
       +
         \L(A^z\R)\ve{e}_{z}\\
       %
@@ -903,9 +903,9 @@ the same.
  \end{align*}
  %
  Note that the transformed unit vectors does not have unit length.
- 
- Let us now transform the covariant vector (a vector which transform 
- covariantly, which in our case means that the components are written 
+
+ Let us now transform the covariant vector (a vector which transform
+ covariantly, which in our case means that the components are written
  covariantly and the basis vectors are  written  contravariantly), we find that
  %
  \begin{align*}
@@ -928,11 +928,11 @@ the same.
       +  A_z\ve{e}^z
  \end{align*}
  %
- where $\grad$ is del operator consisting of $\partial_x$, $\partial_y$ and 
+ where $\grad$ is del operator consisting of $\partial_x$, $\partial_y$ and
  $\partial_z$.
- 
- It is now important to differentiate between the components $A_\rho$, 
-$A_\phi$,  $A_z$ and $A_{\hat{\rho}}$, $A_{\hat{\phi}}$, $A_{\hat{z}}$ seen in 
+
+ It is now important to differentiate between the components $A_\rho$,
+$A_\phi$,  $A_z$ and $A_{\hat{\rho}}$, $A_{\hat{\phi}}$, $A_{\hat{z}}$ seen in
 example  \hyperref[ex:vft]{2},  which differs by  the  scale factors.
 \end{example}
 %
@@ -1085,9 +1085,9 @@ and we notice that
   \end{bmatrix}
  \end{align*}
  %
- Note that $g_{ij} = (g^{ij})^{-1}$ only because our coordinate system is 
- orthogonal, and that in general $g_{ij}g^{jk}=\delta_i^k$ due to orthogonality 
- of covariant and contravariant metrics (the matrix product of the metric 
+ Note that $g_{ij} = (g^{ij})^{-1}$ only because our coordinate system is
+ orthogonal, and that in general $g_{ij}g^{jk}=\delta_i^k$ due to orthogonality
+ of covariant and contravariant metrics (the matrix product of the metric
  tensors written as matrices gives the identity matrix).
 \end{example}
 %
