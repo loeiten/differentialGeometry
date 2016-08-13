@@ -30,7 +30,7 @@ ax.set_aspect("equal")
 x_vec = np.array([1,0,0])
 y_vec = np.array([0,1,0])
 z_vec = np.array([0,0,1])
-# We will place our basis in the origin, so 
+# We will place our basis in the origin, so
 # x_start = y_start = z_start = [0, 0, 0]
 origin = np.array([0,0,0])
 # We will now write the basis vectors as

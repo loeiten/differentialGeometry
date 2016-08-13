@@ -34,7 +34,7 @@ class Arrow3D(FancyArrowPatch):
         self.set_positions((xs[0],ys[0]),(xs[1],ys[1]))
         FancyArrowPatch.draw(self, renderer)
 
-class transformation: 
+class transformation:
     """Transformation from one coordinate system to the other"""
     def __init__(self, from_coord = None, to_coord = None):
         if from_coord == None or to_coord == None:
@@ -52,7 +52,7 @@ class transformation:
                 theta1 = acos(z/sqrt(x**2 + y**2 + z**2))
                 phi1 = atan(y/x)
                 # ===============================
-                self.from_coords = [x, y, z] 
+                self.from_coords = [x, y, z]
                 self.to_coords   = [r1, theta1, phi1]
             else:
                 self.errors(from_coord = from_coord, to_coord=to_coord)
@@ -91,7 +91,7 @@ class transformation:
             if type(to_coord) != str:
                 raise TypeError ('to_coord must be given as a string')
             to_coord_set = True
-        
+
         if to_coord_set == True and from_coord_set == True:
             raise ValueError ("from_coord '" + from_coord + "' to " +\
                               "to_coord '" + to_coord + "' not implimented")
@@ -99,8 +99,8 @@ class transformation:
             raise ValueError ("to_coord '" + to_coord + "' not implimented")
         elif to_coord_set == False and from_coord_set == True:
             raise ValueError ("from_coord '" + from_coord + "' not implimented")
-#}}}            
-        
+#}}}
+
     def get_transformation_matrix(self, do_simplify=False):
         """Returns the transformation matrix for contravariant
         transformations"""
